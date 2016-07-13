@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>欢迎来到登录页面！</title>
+		<link rel="Shortcut Icon" href="images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div class="bgImg">
+			<img src="images/2.jpg" width="100%" height="100%"/>
+		</div>
+		<div class="container">
+			<div  id='loginBox'>
+				<!-- <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3" id="login_form"> -->
+        		<div id="login_form">
+					<h3>用户账号登录</h3>
+					<form id="applicationForm">
+			            <div class="row">
+			              <div class="col-xs-12">
+			              	<label>用户名 :<label>
+			              	<input type="text" id="text" name="text" autofocus="autofocus" placeholder="请输入您的账号"/>
+			              </div>
+			           	</div>
+						
+			            <div class="row">
+			             	<div class="col-xs-12">
+			             		<label class="psw">密&nbsp;码 :<label>
+								<input type="password" id="psw" name="psw" placeholder="请输入您的密码"/>
+			              	</div>
+			           	</div>
+						
+			            <div class="row">
+							<div class="col-xs-12">
+								<label>验证码 :</label>
+								<input type="text" name="validate" id="validate" placeholder="请输入验证码" />
+								<img src="${pageContext.request.contextPath}/user_Verify.do" width="50" height="23">
+			              	</div>
+			           	</div>
+						
+			            <div class="row">
+			            	<div class="col-xs-12">
+								<a href="#"><input type="button" id="submit" value="登  录" /></a>
+			            	</div>
+			           	</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#submit").click(function(){
+
+
+					var text = $("#text").val();
+					var psw = $("#psw").val();
+					var validate = $("#validate").val();
+					var formParam = {
+						"post.text": text,
+						"post.pwd": psw,
+						"post.check": validate
+					};
+					console.log(formParam);
+					var url = "${pageContext.request.contextPath}/user_Login.do";
+
+
+					$.ajax({
+					type:"post",
+					url:url,
+					data:formParam,
+					dataType:"json",
+					async:true,
+					success:function(data){
+						var stt = JSON.stringify( data );
+						console.log(stt + "##############");
+						var jsonStr = JSON.stringify( data.result.result );
+						console.log(jsonStr);
+						if(jsonStr === "\"success\""){
+							window.location.href="${pageContext.request.contextPath}/index.jsp";
+						}else if(jsonStr === "\"failure\""){
+							alert("登陆失败，密码错误，你不是管理员，你滚蛋");
+						}else if(jsonStr === "\"checkfail\""){
+							alert("验证码错误");
+						}
+					},
+					error:function(data){
+						alert("fail");
+					}
+				});
+				});
+			});
+		</script>
+	</body>
+</html>

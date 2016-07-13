@@ -1,0 +1,54 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+  <style type="text/css">.b1{white-space-collapsing:preserve;}
+.b2{margin: 1.0in 1.25in 1.0in 1.25in;}
+.p1{text-align:center;hyphenate:auto;font-family:Times New Roman;font-size:10pt;}
+.p2{text-indent:0.29166666in;text-align:center;hyphenate:auto;font-family:Times New Roman;font-size:24pt;}
+.p3{text-align:center;hyphenate:auto;font-family:Helvetica;font-size:10pt;}
+.p4{text-indent:0.29166666in;text-align:center;hyphenate:auto;font-family:Helvetica;font-size:10pt;}
+.s1{color:red;}
+.s2{color:#333333;}
+</style>
+  <meta content="萧家洲" name="author" />
+ </head>
+ <body class="b1 b2">
+  <p class="p1"> <span>Struts返回的json（自动生成）对象，使用js的函数转成字符串后会带有双引号，要比较时候需要转义字符</span> </p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p2"> <span>Struts的action类中，要生成的json和用于封装请求信息的实体类，如果都配置</span><span class="s1">set和get方法，则在返回的json中包涵两个对象，如果封装请求信息的实体类不生成get方法，则不会包涵两个对象在json中，但是封装请求的信息不完整（只有一个）</span> </p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"> <span>Dao层要获取sessionFactory对象需要显式使用注解声明Resource</span> </p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"> <span>Hibernate执行相关的查询需要在对应的映射类实体中定义空的构造函数</span> </p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"> <span>HttpServletResponse的输出流相关问题</span> </p>
+  <p class="p1"></p>
+  <p class="p3"> <span class="s2">一般来说你看到有&nbsp;close&nbsp;的方法它会自动先&nbsp;flush&nbsp;一次再&nbsp;close，明确的&nbsp;flush&nbsp;只是更保险，多数&nbsp;API&nbsp;都是会在&nbsp;close&nbsp;之前尝试&nbsp;flush&nbsp;的。</span> </p>
+  <p class="p3"></p>
+  <p class="p4"> <span class="s2">out&nbsp;=&nbsp;null;&nbsp;这句只要不是在条件式无穷循环中，就不是必须的。如果一个后台线程运行&nbsp;&nbsp;7&nbsp;x&nbsp;24&nbsp;的功能，应该在循环中明确地把变量赋值为&nbsp;null。</span> </p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"> <span>Struts2的拦截器</span> </p>
+  <p class="p3"> <span class="s2">struts2的机制，只要调用&nbsp;invoke()方法后，如果能成功的调用了对应Action类中的方法，strtus2就会按照该方法的返回值去找对应的result，从而忽略拦截器的返回值；如果你不调用invoke()方法，那么页面就会跳转到你在拦截器中指定的result对应的页面。这个方式通常用于权限验证，当符合权限要求的时候才会调用invoke()方法，执行Action类中的方法；不满足权限的调价直接返回错误页面，这是就用到了拦截器中的返回值了</span> </p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+  <p class="p1"></p>
+ </body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环水养殖系统</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="Shortcut Icon" href="images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/home.css" /> -->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<!-- 前端模板：头部header部分 -->
+	<!--头部logo-->
+<div id="header">
+  <h1><a href="index.html">循环水养殖系统</a></h1>
+</div>
+<!--头部logo!-->
+<!--顶部菜单-->
+<nav class="navbar navbar-inverse" id="user-nav" >
+
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">切换按钮</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
+
+<div class="collapse navbar-collapse my-navbar" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav">
+    <li>
+  <a><i class="icon icon-user"></i>  <span class="text">欢迎管理员！</span></a>
+</li>
+<li>
+  <a href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a>
+</li>
+<li>
+  <a href="login.html"><i class="icon icon-share-alt"></i> <span class="text">登录</span></a>
+</li>
+  </ul>
+</div>
+
+</nav>
+<!--顶部菜单-->
+
+
+	<!-- 前端模板：左侧菜单部分 -->
+  <!--左侧菜单栏-->
+<div id="sidebar">
+<!--<a href="#" class="visible-xs-block"><i class="icon icon-home"></i> 菜单导航</a>-->
+<ul style="display: block;">
+  <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
+  <li> <a href="repository.html"><i class="icon icon-signal"></i> <span>专家知识库</span></a> </li>
+  <li> <a href=" deviceControl.html"><i class="icon icon-inbox"></i> <span>设备控制</span></a> </li>
+  <li><a href="dataCollection.html"><i class="icon icon-th"></i> <span>数据采集</span></a></li>
+  <li><a href="algorithmProcessor.html"><i class="icon icon-fullscreen"></i> <span>算法处理</span></a></li>
+  <li class="submenu">
+    <a>
+      <i class="icon icon-th-list"></i> <span>系统管理</span> <span class="label label-primary pull-right ">2</span>
+    </a>
+    <ul>
+      <!-- <li><a href="addDevice.html">添加设备</a></li>
+      <li><a href="collectionFrequency.html">采集频率</a></li> -->
+      <li><a href="EditIndicators.html">指标设置</a></li>
+      <li><a href="dataManagement.html">数据管理</a></li>
+    </ul>
+  </li>
+  <!-- <li class="submenu"><a><i class="icon icon-pencil"></i> <span>用户管理</span> <span class="label label-primary pull-right ">3</span></a>
+    <ul>
+      <li><a href="userList.html">用户列表</a></li>
+      <li><a href="addUser.html">添加用户</a></li>
+      <li><a href="warningInformation.html">其他</a></li>
+    </ul>
+  </li> -->
+  <li><a href="userList.html"><i class="icon icon-pencil"></i> <span>用户管理</span></a></li>
+  <!-- <li class="submenu"><a><i class="icon icon-tint"></i> <span>预警信息</span> <span class="label label-primary pull-right ">4</span></a>
+    <ul>
+      <li><a href="pushNotification.html">消息推送</a></li>
+      <li><a href="notificationHistory.html">历史消息</a></li>
+    </ul>
+  </li> -->
+  <li><a href="notificationHistory.html"><i class="icon icon-tint"></i> <span>预警信息</span></a></li>
+</ul>
+</div>
+<!--左侧菜单栏-->
+
+
+	<!--右边主体内容-->
+	<div id="content">
+
+		<!--主内容头部面包屑导航-->
+		<div id="content-header">
+			<ol class="breadcrumb">
+				<li class="active">
+					<a href="index.html"><span class="icon icon-home"></span> 专家知识库</a>
+				</li>
+			</ol>
+		</div>
+		<!--主内容头部面包屑导航-->
+
+		<!--内容区-->
+		<div class="container-fluid whiteCard">
+			<!-- 标题区域 -->
+			<div class="titlebar clearfix">
+				<h4 class="pull-left">知识库</h4>
+				<div class="btn-group pull-right" role="group">
+					<button type="button" class="btn btn-info" id='downloadDocument'>
+						<span class="icon icon-cloud-download"></span> 下载文件
+					</button>
+					<button type="button" class="btn btn-info" id="uploadDocument">
+						<span class="icon icon-cloud-upload"></span> 上传更新
+					</button>
+				</div>
+			</div>
+			<!-- 标题区域 -->
+			<!-- 内容体 -->
+				<iframe src="expertknowledgeDocument.html" id="iframepage" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="iFrameHeight();"></iframe>
+			<!-- 内容体 -->
+		</div>
+		<!--内容区-->
+		<!-- 模态框 -->
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="MessageBox">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title"><span class="icon icon-comment"></span> 消息提示</h4>
+					</div>
+					<div class="modal-body">
+						模态框初始内容！
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-info" id="sure">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 模态框 -->
+
+	</div>
+	<!--右边主体内容-->
+
+  <!-- 前端模板：底部版权部分 -->
+	<!--底部内容-->
+<div class="container" id='footer'>
+  <p>版权所有 广东海洋大学JKing团队（<a href="http://www.jking.net" target="_blank">www.jking.net</a>） 设计维护</p>
+  <p>Copyright © Guangdong Ocean University JKing Team. All Rights Reserved.</p>
+</div>
+<!--底部内容-->
+
+	<script src='js/jquery.min.js'></script>
+	<script src='js/bootstrap.min.js'></script>
+	<script src="js/common.js"></script>
+	<script src="js/repository.js"></script>
+</body>
+</html>

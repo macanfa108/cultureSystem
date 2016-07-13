@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环水养殖系统</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="Shortcut Icon" href="images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/home.css" /> -->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<!-- 前端模板：头部header部分 -->
+	@@include('../include/header.html')
+
+	<!-- 前端模板：左侧菜单部分 -->
+  @@include('../include/nav.html')
+
+	<!--右边主体内容-->
+	<div id="content">
+
+		<!--主内容头部面包屑导航-->
+		<div id="content-header">
+			<ol class="breadcrumb">
+				<li class="active">
+					<a href="index.html"><span class="icon icon-pencil"></span> 用户管理</a>
+				</li>
+			</ol>
+		</div>
+		<!--主内容头部面包屑导航-->
+
+		<!--用户列表-->
+		<div class="container-fluid table_list" id="user_list">
+			<h2>用户列表</h2>
+			<div class="table-responsive">
+				<form class="form-inline list_delete pull-right">
+					<button type="button" class="btn btn-info" id="add_user">添加用户</button>
+				  	<button type="button" class="btn btn-danger" id="delete_user">删除用户</button>
+				  	<div class="form-group">
+				    	<div class="input-group">
+				      		<input type="text" class="form-control" id="user_message" placeholder="输入用户名">
+				      		<div class="input-group-addon" id="search">搜索</div>
+				    	</div>
+				  	</div>
+				</form>
+				<table class="table  table-striped  table-bordered table-hover">
+					<thead>
+						<tr>
+							<th><input type="checkbox" class="checkAll" /></th>
+							<th>ID</th>
+							<th>用户名</th>
+							<th>邮箱</th>
+							<th>手机</th>
+							<th>注册时间</th>
+							<th>备注</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>1</td>
+							<td>fdsfA</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>2</td>
+							<td>fsfsd</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"/></td>
+							<td>3</td>
+							<td>ebvf</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"/></td>
+							<td>4</td>
+							<td>gregega</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<ul class="pagination pull-right">
+				    <li>
+				      	<a href="#">
+				        	<span>&laquo;</span>
+				      	</a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li>
+				      	<a href="#">
+				        	<span>&raquo;</span>
+				      	</a>
+				    </li>
+				  </ul>
+			</div>
+		</div>
+		<!--用户列表-->
+		<hr />
+		<!--用户操作历史-->
+		<div class="container-fluid table_list">
+			<!--用户操作历史-->
+			<h2>用户操作历史</h2>
+			<div class="table-responsive">
+				<form class="form-inline list_delete pull-right">
+				  	<button type="button" class="btn btn-danger" id="delete_history">删除历史</button>
+				</form>
+				<table class="table  table-striped  table-bordered table-hover">
+					<thead>
+						<tr>
+							<th><input type="checkbox" class="checkAll" /></th>
+							<th>用户ID</th>
+							<th>用户名</th>
+							<th>设备ID</th>
+							<th>设备名</th>
+							<th>操作时间</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>1</td>
+							<td>ascas</td>
+							<td>001</td>
+							<td>打氧机</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>2</td>
+							<td>ascas</td>
+							<td>002</td>
+							<td>打氧机</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>3</td>
+							<td>ascas</td>
+							<td>003</td>
+							<td>打氧机</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+					</tbody>
+				</table>
+				<ul class="pagination pull-right">
+				    <li>
+				      	<a href="#">
+				        	<span>&laquo;</span>
+				      	</a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li>
+				      	<a href="#">
+				        	<span>&raquo;</span>
+				      	</a>
+				    </li>
+				  </ul>
+			</div>
+
+			<!--用户操作历史-->
+		</div>
+		<!--用户操作历史-->
+
+	</div>
+	<!--右边主体内容-->
+	
+<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">操作提示</h4>
+	      </div>
+	      <div class="modal-body">
+	      </div>
+	      <div class="modal-footer">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<!-- Modal -->
+  <!-- 前端模板：底部版权部分 -->
+	@@include('../include/footer.html')
+	
+	
+	<script src='js/jquery.min.js'></script>
+	<script src='js/bootstrap.min.js'></script>
+	<script src="js/common.js"></script>
+	<script src="js/userList.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

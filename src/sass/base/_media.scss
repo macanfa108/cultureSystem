@@ -1,0 +1,53 @@
+//  ==========
+//  = 响应式设计 =
+/*平板设计*/
+
+@media screen and (max-width: 992px) {
+    body {
+        background: $MainColor;
+    }
+    #header h1 {
+        top: 6px;
+        left: 35px;
+    }
+    #sidebar {
+        width:43px;
+
+        &>ul{
+            width: 43px;
+            display: block;
+            position: absolute;
+            height: 100%;
+            z-index: 1;
+        }
+        &>ul>li{
+            float: none;
+
+            &:hover ul{
+                display: block;
+            }
+        }
+        &>ul>li>a>span{
+            display: none;
+        }
+        //子菜单
+        &>ul ul{
+            display: none;
+            position: absolute;
+            left: 43px;
+            top: 0;
+            min-width: 150px;
+            list-style: none;
+
+            & li a{
+                white-space: nowrap;
+                padding: 10px 25px;
+            }
+
+        }
+    }
+    #content{
+        margin-left:43px;
+    }
+}
+//  ==========

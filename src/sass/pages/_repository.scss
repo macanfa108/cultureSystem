@@ -1,0 +1,10 @@
+.titlebar{
+  line-height: 40px;
+  padding:1% 0px;
+  margin-bottom:1%;
+  border-bottom: $border-title;
+  // border:1px solid red;
+  .btn-group{
+    margin:2px;
+  }
+}

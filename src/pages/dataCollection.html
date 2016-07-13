@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环水养殖系统</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="Shortcut Icon" href="images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/home.css" /> -->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<!-- 前端模板：头部header部分 -->
+	@@include('../include/header.html')
+
+	<!-- 前端模板：左侧菜单部分 -->
+  @@include('../include/nav.html')
+
+	<!--右边主体内容-->
+	<div id="content">
+
+		<!--主内容头部面包屑导航-->
+		<div id="content-header">
+			<ol class="breadcrumb">
+				<li class="active">
+					<a><span class="icon icon-th"></span> 数据采集</a>
+				</li>
+			</ol>
+		</div>
+		<!--主内容头部面包屑导航-->
+		<!-- 主内容体 -->
+		<div class="container-fluid whiteCard">
+			<!-- 标题区域 -->
+			<div class="titlebar clearfix">
+				<h4 class="pull-left">图表展示</h4>
+			</div>
+			<!-- 标题区域 -->
+			<!-- 图表区域 -->
+
+			<!-- <div class="container-fluid"> -->
+			<!-- 每个采集表都用特殊的id名标识：dataArea+n,用于dom元素获取 -->
+			<!-- 温度采集表 -->
+			<div class="row" id="dataArea1">
+				<div class="col-sm-12 col-md-10">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="dataArea1Canvas" style="height:450px;"></div>
+				</div>
+				<!-- 相关数据结果 -->
+				<div class="col-sm-12 col-md-2">
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-paleBlue">
+							<p class="parameterValue latestData">24.70℃</p>
+							<p class="parameter">最新数据</p>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-pink">
+							<p class="parameterValue maximum">26.10℃</p>
+							<p class="parameter">最高峰值</p>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-blue">
+							<p class="parameterValue minimum">20.10℃</p>
+							<p class="parameter">最低峰值</p>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-purple">
+							<p class="parameterValue averageNum">24.88℃</p>
+							<p class="parameter">平均数据</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- 温度采集表 -->
+			<hr>
+			<!-- 溶氧量采集表 -->
+			<div class="row" id="dataArea2">
+				<div class="col-sm-12 col-md-10">
+					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+					<div id="dataArea2Canvas" style="height:450px;"></div>
+				</div>
+				<!-- 相关数据结果 -->
+				<div class="col-sm-12 col-md-2">
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-paleBlue">
+							<p class="parameterValue latestData">8.38mg/L</p>
+							<p class="parameter">最新数据</p>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-pink">
+							<p class="parameterValue maximum">8.70mg/L</p>
+							<p class="parameter">最高峰值</p>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-blue">
+							<p class="parameterValue minimum">8.21mg/L</p>
+							<p class="parameter">最低峰值</p>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-12">
+						<div class="tile tile-purple">
+							<p class="parameterValue averageNum">8.41mg/L</p>
+							<p class="parameter">平均数据</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- 溶氧量采集表 -->
+			<!-- </div> -->
+			<!-- 图标区域 -->
+		</div>
+		<!-- 主内容体 -->
+
+	</div>
+	<!--右边主体内容-->
+
+  <!-- 前端模板：底部版权部分 -->
+	@@include('../include/footer.html')
+	<script src='js/jquery.min.js'></script>
+	<script src='js/bootstrap.min.js'></script>
+	<script src="js/common.js"></script>
+	<script src="js/echarts.js"></script>
+	<script src="js/dataCollection.js"></script>
+</body>
+</html>

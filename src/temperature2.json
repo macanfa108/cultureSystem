@@ -1,0 +1,23 @@
+[{
+    "title": "温度采集表",
+    "unit":"℃",
+    "collectionFrequency":3,
+    "latestData":{
+      "latestValue":25.80,
+      "lastReceiveTime":"2016/12/13 22:22:25"
+    },
+    "maximum":28.6,
+    "minimum":22.1,
+    "averageNum":24.21
+},{
+    "title":"溶氧量采集表",
+    "unit":"mg/L",
+    "collectionFrequency":3,
+    "latestData":{
+      "latestValue":8.64,
+      "lastReceiveTime":"2016/12/13 22:12:33"
+    },
+    "maximum":8.58,
+    "minimum":8.24,
+    "averageNum":8.33
+}]

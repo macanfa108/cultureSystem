@@ -1,0 +1,83 @@
+/* = 头部logo部分 = */
+#header{
+    height: 77px;
+    position:relative;
+    width:100%;
+    z-index: -9;
+    background-color: $MainColor;
+    margin-top:-20px;
+
+    h1{
+        height:31px;
+        width:191px;
+
+//      background: url(../images/logo.png) no-repeat scroll 0 0 transparent;
+//      line-height: 600px;
+        line-height: 20px;
+        text-indent: 1em;
+//      overflow: hidden;
+        position:relative;
+        top:26px;
+        left:20px;
+//      border: 1px solid #fff;
+    }
+    a{
+        font-size:16px;
+        color:#fff;
+        font-weight: bold;
+    }
+}
+/* ========== */
+//  = 顶部菜单 =
+#user-nav{
+    position:absolute;
+    left:220px;
+    top:0;
+    margin:0;
+    min-height: auto;
+    background:$MainColor;
+    border:none;
+    //覆盖类库样式
+    .nav>li>a:hover,.nav>li>a:focus,.nav .open>a,.nav .open>a:hover,.nav .open>a:focus{
+        background-color:#000000;
+        color:#fff;
+    }
+    //覆盖
+    & .navbar-collapse{
+        padding:0;
+    }
+    & .navbar-nav > li > a{
+        padding-top:10px;
+        padding-bottom: 10px;
+    }
+    & .navbar-toggle {
+        padding: 11px 10px;
+        margin: 0px;
+        float: none;
+//      background-color: #e02f2f;
+        /*兼容IE*/
+        padding-top:4px\0;
+        padding-bottom:4px\0;
+    }
+    & .navbar-nav{
+        margin:0;
+    }
+     /*兼容IE*/
+    & .navbar-nav > li > a{
+        line-height: 0\0;
+    }
+
+    &>ul{
+        margin:0;
+        padding:0;
+        border-right:1px solid #2e363f;
+        border-left:1px solid #000;
+
+        &>li{
+            float: left;
+            border-right:1px solid #000;
+        }
+    }
+
+}
+//  ==========

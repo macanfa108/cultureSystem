@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+/*变量函数*/
+@import "helpers/variables"
+,'helpers/mixins'
+,'helpers/placeholder'
+,'helpers/class'
+;
+// 页面公共样式
+@import "base/style"
+
+;
+// 系统共用结构部分
+@import "layout/header"
+,'layout/nav'
+,'layout/footer'
+;
+// 各个独立的页面
+@import "pages/home"
+,'pages/login'
+,'pages/repository'
+,'pages/userList'
+,'pages/notificationHistory'
+;
+// 响应式设计
+@import "base/media"
+;

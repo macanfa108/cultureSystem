@@ -1,0 +1,99 @@
+//  = 左侧菜单栏 =
+#sidebar{
+    display: block;
+    float: left;
+    position: relative;
+    width: 220px;
+    z-index: 16;
+
+    &>ul{
+        margin:0;
+        padding:0;
+        list-style: none;
+        position:absolute;
+        width:220px;
+        border-bottom:1px solid #37414b;
+
+        &>li{
+            position:relative;
+            border-top:1px solid #37414b;
+            border-bottom:1px solid #1f262d;
+            cursor:pointer;
+
+            &:first-child{
+                border-top:0;
+            }
+            &:last-child{
+                border-bottom:0;
+            }
+
+            &>a{
+                display: block;
+                padding:10px 0 10px 15px;
+                color:#939da8;
+                position:relative;
+
+                &:hover{
+                    background:#27a9e3;
+                    color:#fff;
+                }
+
+                &>i{
+                    margin-right:10px;
+                }
+                //重写了label定位样式
+                & .label{
+                    margin-right:20px;
+                }
+
+            }
+            //子菜单
+            & ul{
+                background: #1e242b;
+                list-style: none;
+                margin:0;padding:0;
+                display:none;
+
+                & li a{
+                    padding:10px 0px 10px 30px;
+                    display: block;
+                    color:#ccc;
+
+                    &:hover{
+                        background: #6FC6F0;
+                        color:#fff;
+                    }
+                }
+            }
+            &.open ul{
+                display: block;
+
+            }
+        }
+
+
+        &>li.active{
+            background:$SidebarActiveLi;
+            border-bottom: 1px solid #27a9e3;
+            border-top: 1px solid #27a9e3;
+
+            &>a{
+                color:#fff;
+                /*右箭头制作*/
+                &:after{
+                    content:'';
+                    display: inline-block;
+                    width:0px;height:0px;
+                    overflow: hidden;
+                    border:7px solid #EDEDED;
+                    border-color:transparent #EDEDED transparent transparent;
+                    position:absolute;
+                    top:50%;right:0px;
+                    margin-top:-7px;
+                }
+            }
+        }
+    }
+
+}
+//  ==========

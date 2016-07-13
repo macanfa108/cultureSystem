@@ -1,0 +1,24 @@
+//带多个参数（例如经典居中）
+@mixin center($width,$height){
+  width: $width;
+  height: $height;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -($height) / 2;
+  margin-left: -($width) / 2;
+}
+// //调用
+// .box-center {
+//   @include center(500px,300px);
+// }
+
+//带默认值的border-radius
+@mixin border-radius($radius:3px){
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+//调用
+// .box {
+//   @include border-radius(50%);//或者@include border-radius;
+// }

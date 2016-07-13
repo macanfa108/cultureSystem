@@ -1,0 +1,37 @@
+@charset "utf-8";
+/*用户管理样式*/
+
+
+.table_list{
+    background: #fff;
+    margin:0 1%;
+}
+.list_delete{
+    margin-bottom: 10px;
+}
+.edit{
+    text-align: center;
+    z-index: 1;
+    & .edit_message{
+        z-index: 2;
+    }
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    margin: 0 5px;
+    border: 1px solid #dddddd; /* 设置所有的边框都为1像素 */
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0px; /* 取消圆角 */
+}
+#search{
+    cursor: pointer;
+}

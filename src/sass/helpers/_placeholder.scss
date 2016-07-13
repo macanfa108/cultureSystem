@@ -1,0 +1,29 @@
+%user-select{
+  user-select:none;/*禁止文本选中*/
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  -moz-user-select:none;
+}
+// .box{
+//   @extend %user-select;
+// }
+/*以下三个都是登录页面login 中的按钮占位符*/
+%btn_transition{
+    transition:all 0.6s ease;
+    -webkit-transition:all 0.6s ease;
+    -moz-transition:all 0.6s ease;
+    -ms-transition:all 0.6s ease;
+}
+
+%btn{
+    padding:6px 30px;
+    margin:0 10px;
+    border:none;
+    color: $color;
+    @extend %btn_transition;
+}
+%btn_hover{
+    color:#fff;
+    background:$color;
+    // @extend .btn_transition;
+}
