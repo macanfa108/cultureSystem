@@ -96,99 +96,51 @@
 		<div id="content-header">
 			<ol class="breadcrumb">
 				<li class="active">
-					<a><span class="icon icon-th"></span> 数据采集</a>
+					<a href="index.html"><span class="icon icon-home"></span> 专家知识库</a>
 				</li>
 			</ol>
 		</div>
 		<!--主内容头部面包屑导航-->
-		<!-- 主内容体 -->
+
+		<!--内容区-->
 		<div class="container-fluid whiteCard">
 			<!-- 标题区域 -->
 			<div class="titlebar clearfix">
-				<h4 class="pull-left">图表展示</h4>
+				<h4 class="pull-left">知识库</h4>
+				<div class="btn-group pull-right" role="group">
+					<button type="button" class="btn btn-info" id='downloadDocument'>
+						<span class="icon icon-cloud-download"></span> 下载文件
+					</button>
+					<button type="button" class="btn btn-info" id="uploadDocument">
+						<span class="icon icon-cloud-upload"></span> 上传更新
+					</button>
+				</div>
 			</div>
 			<!-- 标题区域 -->
-			<!-- 图表区域 -->
-
-			<!-- <div class="container-fluid"> -->
-			<!-- 每个采集表都用特殊的id名标识：dataArea+n,用于dom元素获取 -->
-			<!-- 温度采集表 -->
-			<div class="row" id="dataArea1">
-				<div class="col-sm-12 col-md-10">
-					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-					<div id="dataArea1Canvas" style="height:450px;"></div>
-				</div>
-				<!-- 相关数据结果 -->
-				<div class="col-sm-12 col-md-2">
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-paleBlue">
-							<p class="parameterValue latestData">24.70℃</p>
-							<p class="parameter">最新数据</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-pink">
-							<p class="parameterValue maximum">26.10℃</p>
-							<p class="parameter">最高峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-blue">
-							<p class="parameterValue minimum">20.10℃</p>
-							<p class="parameter">最低峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-purple">
-							<p class="parameterValue averageNum">24.88℃</p>
-							<p class="parameter">平均数据</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<!-- 温度采集表 -->
-			<hr>
-			<!-- 溶氧量采集表 -->
-			<div class="row" id="dataArea2">
-				<div class="col-sm-12 col-md-10">
-					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-					<div id="dataArea2Canvas" style="height:450px;"></div>
-				</div>
-				<!-- 相关数据结果 -->
-				<div class="col-sm-12 col-md-2">
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-paleBlue">
-							<p class="parameterValue latestData">8.38mg/L</p>
-							<p class="parameter">最新数据</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-pink">
-							<p class="parameterValue maximum">8.70mg/L</p>
-							<p class="parameter">最高峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-blue">
-							<p class="parameterValue minimum">8.21mg/L</p>
-							<p class="parameter">最低峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-purple">
-							<p class="parameterValue averageNum">8.41mg/L</p>
-							<p class="parameter">平均数据</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<!-- 溶氧量采集表 -->
-			<!-- </div> -->
-			<!-- 图标区域 -->
+			<!-- 内容体 -->
+				<iframe src="expertknowledgeDocument.html" id="iframepage" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onload="iFrameHeight();"></iframe>
+			<!-- 内容体 -->
 		</div>
-		<!-- 主内容体 -->
+		<!--内容区-->
+		<!-- 模态框 -->
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="MessageBox">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title"><span class="icon icon-comment"></span> 消息提示</h4>
+					</div>
+					<div class="modal-body">
+						模态框初始内容！
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-info" id="sure">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 模态框 -->
 
 	</div>
 	<!--右边主体内容-->
@@ -204,7 +156,6 @@
 	<script src='js/jquery.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
 	<script src="js/common.js"></script>
-	<script src="js/echarts.js"></script>
-	<script src="js/dataCollection.js"></script>
+	<script src="js/repository.js"></script>
 </body>
 </html>

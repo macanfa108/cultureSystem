@@ -96,102 +96,114 @@
 		<div id="content-header">
 			<ol class="breadcrumb">
 				<li class="active">
-					<a><span class="icon icon-th"></span> 数据采集</a>
+					<a href="index.html"><span class="icon icon-pencil"></span> 用户管理</a>
 				</li>
 			</ol>
 		</div>
 		<!--主内容头部面包屑导航-->
-		<!-- 主内容体 -->
-		<div class="container-fluid whiteCard">
-			<!-- 标题区域 -->
-			<div class="titlebar clearfix">
-				<h4 class="pull-left">图表展示</h4>
-			</div>
-			<!-- 标题区域 -->
-			<!-- 图表区域 -->
 
-			<!-- <div class="container-fluid"> -->
-			<!-- 每个采集表都用特殊的id名标识：dataArea+n,用于dom元素获取 -->
-			<!-- 温度采集表 -->
-			<div class="row" id="dataArea1">
-				<div class="col-sm-12 col-md-10">
-					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-					<div id="dataArea1Canvas" style="height:450px;"></div>
-				</div>
-				<!-- 相关数据结果 -->
-				<div class="col-sm-12 col-md-2">
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-paleBlue">
-							<p class="parameterValue latestData">24.70℃</p>
-							<p class="parameter">最新数据</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-pink">
-							<p class="parameterValue maximum">26.10℃</p>
-							<p class="parameter">最高峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-blue">
-							<p class="parameterValue minimum">20.10℃</p>
-							<p class="parameter">最低峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-purple">
-							<p class="parameterValue averageNum">24.88℃</p>
-							<p class="parameter">平均数据</p>
-						</div>
-					</div>
-
-				</div>
+		<!--预警提醒-->
+		<div class="container-fluid warning" id="warning_list">
+			<h2>预警提醒</h2>
+			<div class="table-responsive">
+				<form class="form-inline list_delete pull-right">
+				  	<button type="button" class="btn btn-danger" id="delete_data">删除数据</button>
+				  	<!--<div class="form-group">
+				    	<div class="input-group">
+				      		<input type="text" class="form-control" id="user_message" placeholder="输入设备名">
+				      		<div class="input-group-addon" id="search">搜索</div>
+				    	</div>
+				  	</div>-->
+				</form>
+				<table class="table  table-striped  table-bordered table-hover">
+					<thead>
+						<tr>
+							<th><input type="checkbox" class="checkAll" /></th>
+							<th>ID</th>
+							<th>设备名</th>
+							<th>状态</th>
+							<th>提醒</th>
+							<th>时间</th>
+							<th>其他参数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="danger">
+							<td><input type="checkbox"/></td>
+							<td>1</td>
+							<td>温度传感器</td>
+							<td><span class="icon icon-ok"></span> 正常</td>
+							<td>温度为29℃，过高！</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+						<tr class="danger">
+							<td><input type="checkbox" /></td>
+							<td>2</td>
+							<td>溶氧传感器</td>
+							<td><span class="icon icon-ok"></span> 正常</td>
+							<td>溶氧量为5.15mg/L，过低！</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+						<tr  class="danger">
+							<td><input type="checkbox"/></td>
+							<td>3</td>
+							<td>温度传感器</td>
+							<td><span class="icon icon-ok"></span> 正常</td>
+							<td>温度为29℃，过高！</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+						<tr  class="danger">
+							<td><input type="checkbox"/></td>
+							<td>4</td>
+							<td>温度传感器</td>
+							<td><span class="icon icon-ok"></span> 正常</td>
+							<td>温度为29℃，过高！</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+						</tr>
+					</tbody>
+				</table>
+				<ul class="pagination pull-right">
+				    <li>
+				      	<a href="#">
+				        	<span>&laquo;</span>
+				      	</a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li>
+				      	<a href="#">
+				        	<span>&raquo;</span>
+				      	</a>
+				    </li>
+				  </ul>
 			</div>
-			<!-- 温度采集表 -->
-			<hr>
-			<!-- 溶氧量采集表 -->
-			<div class="row" id="dataArea2">
-				<div class="col-sm-12 col-md-10">
-					<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-					<div id="dataArea2Canvas" style="height:450px;"></div>
-				</div>
-				<!-- 相关数据结果 -->
-				<div class="col-sm-12 col-md-2">
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-paleBlue">
-							<p class="parameterValue latestData">8.38mg/L</p>
-							<p class="parameter">最新数据</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-pink">
-							<p class="parameterValue maximum">8.70mg/L</p>
-							<p class="parameter">最高峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-blue">
-							<p class="parameterValue minimum">8.21mg/L</p>
-							<p class="parameter">最低峰值</p>
-						</div>
-					</div>
-					<div class="col-sm-3 col-md-12">
-						<div class="tile tile-purple">
-							<p class="parameterValue averageNum">8.41mg/L</p>
-							<p class="parameter">平均数据</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<!-- 溶氧量采集表 -->
-			<!-- </div> -->
-			<!-- 图标区域 -->
 		</div>
-		<!-- 主内容体 -->
-
+		<!--预警提醒-->
 	</div>
 	<!--右边主体内容-->
+	
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">操作提示</h4>
+	      </div>
+	      <div class="modal-body">
+	      </div>
+	      <div class="modal-footer">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<!-- Modal -->	
 
   <!-- 前端模板：底部版权部分 -->
 	<!--底部内容-->
@@ -204,7 +216,5 @@
 	<script src='js/jquery.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
 	<script src="js/common.js"></script>
-	<script src="js/echarts.js"></script>
-	<script src="js/dataCollection.js"></script>
 </body>
 </html>
