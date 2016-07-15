@@ -16,14 +16,30 @@
 }
 
 %btn{
-    padding:6px 30px;
-    margin:0 10px;
-    border:none;
-    color: $color;
+    width: 40%;
+    height: 38px;
+    color: #fff;
+    background: #E94C37;
+    font-weight: bold;
     @extend %btn_transition;
 }
 %btn_hover{
     color:#fff;
-    background:$color;
+    background:#C11F2E;
     // @extend .btn_transition;
+}
+
+/*绝对居中*/
+%divCenter_position{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+%div_position{
+    position: fixed;
+    left: 0;
+    top: 0;
 }

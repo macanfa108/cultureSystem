@@ -6,6 +6,9 @@
     background: #fff;
     margin:0 1%;
 }
+#user_list{
+    position: relative;
+}
 .list_delete{
     margin-bottom: 10px;
 }
@@ -35,3 +38,31 @@
 #search{
     cursor: pointer;
 }
+
+
+
+#alert1,#alert2{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    @extend %divCenter_position;
+}
+
+#load{
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    @extend %div_position;
+    background: rgba(0,0,0,0.3);
+    
+    & .loading{
+        width: 80px;
+        height: 80px;
+        background: rgba(0,0,0,.7);
+        text-align: center;
+        line-height: 80px;
+        @extend %divCenter_position;
+    }
+}
+
+

@@ -40,19 +40,41 @@
 						arr.push($deviceId[i]);
 					}
 					arr = arr.toString();//转换成字符传 
-					alert(arr);
+//					alert(arr);
 					$.ajax({
 						type:"post",
-						url:"",
+						url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
 						async:true,
 						data:arr,
 						dataType:"json",
 						cache:false,
+						beforeSend:function(){
+							$("body").append("<div id='load'>"+
+							"		<div class='loading'>"+
+							"			<img src='images/ajax-loader-3.gif'/>"+
+							"		</div>"+
+							"	</div>");
+						},
 						success:function(){
-							
+							$("#warning_list").prepend(
+		"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
+		"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+		"						</button>"+
+		"						<strong>删除数据成功!</strong>"+
+		"						</div>");	
+							$("#alert1").fadeOut(2500);
 						},
 						error:function(){
-							
+							$("#warning_list").prepend(
+		"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+		"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+		"						</button>"+
+		"						<strong>删除数据失败！服务器开小差了￣へ￣</strong>"+
+		"						</div>");	
+							$("#alert1").fadeOut(2500);
+						},
+						complete:function(){
+							$("#load").remove();
 						}
 					});
 				});
