@@ -22,6 +22,13 @@
 						data:formParam,
 						dataType:"json",
 						async:true,
+						beforeSend:function(){
+							$("body").append("<div id='load'>"+
+							"		<div class='loading'>"+
+							"			<img src='images/ajax-loader-3.gif'/>"+
+							"		</div>"+
+							"	</div>");
+						},
 						success:function(data){
 							var stt = JSON.stringify( data );
 							console.log(stt + "##############");
@@ -52,6 +59,9 @@
 							$(".modal-body").text("登录失败，服务器开小差了(；′⌒`)");
 							$(".modal-footer").html("<button type='button' class='btn btn-primary' data-dismiss='modal'>确定</button>");
 							$('#myModal').modal();
+						},
+						complete:function(){
+							$("#load").remove();
 						}
 					});
 				});

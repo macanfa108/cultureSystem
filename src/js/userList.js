@@ -1,6 +1,79 @@
 
 /*用户管理*/
-$(function(){
+	$(function(){
+			$.ajax({
+				type:"post",
+				url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
+				async:true,
+				cache:false,
+				data:"",
+				dataType:"json",
+				beforeSend:function(){
+					$("body").append("<div id='load'>"+
+					"		<div class='loading'>"+
+					"			<img src='images/ajax-loader-3.gif'/>"+
+					"		</div>"+
+					"	</div>");
+				},
+				success:function(){
+					$("#user_list_tbody").append(
+				"	<tr>"+
+				"			<td><input type='checkbox' /></td>"+
+				"			<td>2</td>"+
+				"			<td>fsfsd</td>"+
+				"			<td>125675205@qq.conm</td>"+
+				"			<td>13420016565</td>"+
+				"			<td>2016/5/18 22:09:27</td>"+
+				"			<td>...</td>"+
+				"			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
+				"	</tr>"+
+				"	<tr>"+
+				"			<td><input type='checkbox' /></td>"+
+				"			<td>2</td>"+
+				"			<td>fsfsd</td>"+
+				"			<td>125675205@qq.conm</td>"+
+				"			<td>13420016565</td>"+
+				"			<td>2016/5/18 22:09:27</td>"+
+				"			<td>...</td>"+
+				"			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
+				"	</tr>");
+					$("#user_do_history").append(
+				"	<tr>"+
+				"			<td><input type='checkbox' /></td>"+
+				"			<td>2</td>"+
+				"			<td>fsfsd</td>"+
+				"			<td>125675205@qq.conm</td>"+
+				"			<td>13420016565</td>"+
+				"			<td>2016/5/18 22:09:27</td>"+
+				"			<td>...</td>"+
+				"	</tr>"+
+				"	<tr>"+
+				"			<td><input type='checkbox' /></td>"+
+				"			<td>2</td>"+
+				"			<td>fsfsd</td>"+
+				"			<td>125675205@qq.conm</td>"+
+				"			<td>13420016565</td>"+
+				"			<td>2016/5/18 22:09:27</td>"+
+				"			<td>...</td>"+
+				"	</tr>");
+				},
+				error:function(){
+					$("#user_list").prepend(
+"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+"						</button>"+
+"						<strong>编辑失败！服务器开小差了￣へ￣</strong>"+
+"						</div>");	
+					$("#alert1").fadeOut(2500);
+				},
+				complete:function(){
+					$("#load").remove();
+				}
+				
+			});
+		
+		
+		
 			//页面已加载的时候获取文本框的焦点
 			$("#user_message").focus();
 			$("#delete_user").click(function(){
@@ -88,9 +161,9 @@ $(function(){
 			}
 			
 				//点击td选中tr
-				$("table").find("tr").find("td:not(:last-child)").on("click",function(){
-					var checked = $(this).parent().find("input").prop("checked");
-					$(this).parent().find("input").prop("checked",!checked);
+				$("table").on("click","input[type=checkbox]",function(){
+//					var checked = $(this).parent().find("input").prop("checked");
+//					$(this).parent().find("input").prop("checked",!checked);
 					//选中的长度等于总长度就把全选按钮勾上
 					var trLen = $(this).parents("tbody").find("tr").length;
 					var checktrLen = $(this).parents("tbody").find("tr").find("input:checked").length;
@@ -113,7 +186,7 @@ $(function(){
 			
 				
 				//点击编辑用户信息
-				$("table").find(".edit_message").click(function(){
+				$("table").on("click",".edit_message",function(){
 					var $tds = $(this).parents("tr").find("td");
 					var tdslen = $tds.length;
 					var arr2 = [];

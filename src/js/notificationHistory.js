@@ -1,6 +1,57 @@
 		
 		
 	$(function(){
+		$.ajax({
+				type:"post",
+				url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
+				async:true,
+				cache:false,
+				data:"",
+				dataType:"json",
+				beforeSend:function(){
+					$("body").append("<div id='load'>"+
+					"		<div class='loading'>"+
+					"			<img src='images/ajax-loader-3.gif'/>"+
+					"		</div>"+
+					"	</div>");
+				},
+				success:function(){
+					$("#warning_list_tbody").append(
+				"	<tr class='danger'>"+
+				"			<td><input type='checkbox' /></td>"+
+				"			<td>2</td>"+
+				"			<td>fsfsd</td>"+
+				"			<td>125675205@qq.conm</td>"+
+				"			<td>13420016565</td>"+
+				"			<td>2016/5/18 22:09:27</td>"+
+				"			<td>...</td>"+
+				"	</tr>"+
+				"	<tr class='danger'>"+
+				"			<td><input type='checkbox' /></td>"+
+				"			<td>2</td>"+
+				"			<td>fsfsd</td>"+
+				"			<td>125675205@qq.conm</td>"+
+				"			<td>13420016565</td>"+
+				"			<td>2016/5/18 22:09:27</td>"+
+				"			<td>...</td>"+
+				"	</tr>");
+				},
+				error:function(){
+					$("#user_list").prepend(
+"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+"						</button>"+
+"						<strong>编辑失败！服务器开小差了￣へ￣</strong>"+
+"						</div>");	
+					$("#alert1").fadeOut(2500);
+				},
+				complete:function(){
+					$("#load").remove();
+				}
+				
+			});
+		
+		
 		
 		$("#delete_data").click(function(){
 			deleteData("#delete_data");
@@ -92,18 +143,18 @@
 		});
 		
 		//点击td选中tr
-//		$("table").find("tr").find("td:not(:last-child)").on("click",function(){
+		$("table").on("click","input[type=checkbox]",function(){
 //			var checked = $(this).parent().find("input").prop("checked");
 //			$(this).parent().find("input").prop("checked",!checked);
-//			//选中的长度等于总长度就把全选按钮勾上
-//			var trLen = $(this).parents("tbody").find("tr").length;
-//			var checktrLen = $(this).parents("tbody").find("tr").find("input:checked").length;
-//			var $checkAll = $(this).parents("tbody").siblings("thead").find("th").find("input[type=checkbox]");
-//			if(trLen == checktrLen){
-//				$checkAll.prop("checked",true);
-//			}else{
-//				$checkAll.prop("checked",false);					
-//			}
-//		});
+			//选中的长度等于总长度就把全选按钮勾上
+			var trLen = $(this).parents("tbody").find("tr").length;
+			var checktrLen = $(this).parents("tbody").find("tr").find("input:checked").length;
+			var $checkAll = $(this).parents("tbody").siblings("thead").find("th").find("input[type=checkbox]");
+			if(trLen == checktrLen){
+				$checkAll.prop("checked",true);
+			}else{
+				$checkAll.prop("checked",false);					
+			}
+		});
 			
 	});
