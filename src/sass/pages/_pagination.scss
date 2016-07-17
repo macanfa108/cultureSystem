@@ -6,6 +6,7 @@
     width:100%;
     height:auto;
     text-align:right;
+    @extend %user-select;
 }
 
 .simple-pagination {

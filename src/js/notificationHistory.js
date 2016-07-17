@@ -51,7 +51,11 @@
 				
 			});
 		
-		
+	        //jquery分页
+	        $('.light-pagination').pagination({
+	        	pages: 20,
+	        	cssStyle: 'light-theme'
+	        });		
 		
 		$("#delete_data").click(function(){
 			deleteData("#delete_data");

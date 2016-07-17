@@ -3,7 +3,7 @@
 /* 专家知识养殖库*/
 /*首页*/
 /*分页*/
-#login_form {
+#login_form, .page {
   user-select: none;
   /*禁止文本选中*/
   -webkit-user-select: none;
