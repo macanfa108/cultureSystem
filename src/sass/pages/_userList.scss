@@ -20,21 +20,21 @@
     }
 }
 
-.pagination > li > a,
-.pagination > li > span {
-    margin: 0 5px;
-    border: 1px solid #dddddd; /* 设置所有的边框都为1像素 */
-}
-
-.pagination > li:first-child > a,
-.pagination > li:first-child > span,
-.pagination > li:last-child > a,
-.pagination > li:last-child > span {
-    margin-left: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 0px; /* 取消圆角 */
-}
+//.pagination > li > a,
+//.pagination > li > span {
+//  margin: 0 5px;
+//  border: 1px solid #dddddd; /* 设置所有的边框都为1像素 */
+//}
+//
+//.pagination > li:first-child > a,
+//.pagination > li:first-child > span,
+//.pagination > li:last-child > a,
+//.pagination > li:last-child > span {
+//  margin-left: 0px;
+//  padding-left: 10px;
+//  padding-right: 10px;
+//  border-radius: 0px; /* 取消圆角 */
+//}
 #search{
     cursor: pointer;
 }

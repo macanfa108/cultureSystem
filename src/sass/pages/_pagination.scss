@@ -1,0 +1,51 @@
+@charset "utf-8";
+/**
+* CSS themes for simplePagination.js
+*/
+.page{
+    width:100%;
+    height:auto;
+    text-align:right;
+}
+
+.simple-pagination {
+    display:inline-block;
+    overflow: hidden;
+    padding: 15px 0;
+    margin: 0 auto;
+    
+    & li{
+        list-style: none;
+        float: left;
+    }
+}
+
+/*------------------------------------*\
+    Light Theme Styles
+\*------------------------------------*/
+
+.light-theme{
+    a,span{
+        float: left;
+        color: $color;
+        font-size:$fontSize;
+        line-height:24px;
+        text-align: center;
+        border: 1px solid #ddd;
+        padding:$padding;
+        margin-right: 5px;
+    }
+    
+    a:hover{
+        text-decoration: none;
+        background: #EEE;
+        color:$color; 
+    }
+    & .current{
+        background: #428BCA;
+        padding:$padding;
+        border:none;
+        color: #FFF;
+        cursor: $cursor;
+    }
+}

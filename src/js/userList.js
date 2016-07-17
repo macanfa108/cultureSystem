@@ -72,7 +72,16 @@
 				
 			});
 		
-		
+			//jquery分页
+	        $('.light-pagination1').pagination({
+	        	pages: 20,
+	        	cssStyle: 'light-theme'
+	        });
+	        //jquery分页
+	        $('.light-pagination2').pagination({
+	        	pages: 20,
+	        	cssStyle: 'light-theme'
+	        });
 		
 			//页面已加载的时候获取文本框的焦点
 			$("#user_message").focus();

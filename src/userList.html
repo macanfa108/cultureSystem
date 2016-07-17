@@ -41,6 +41,9 @@
 <li>
   <a href="login.html"><i class="icon icon-share-alt"></i> <span class="text">登录</span></a>
 </li>
+<li>
+  <a href="#"><i class="icon icon-edit"></i> <span class="text">修改个人信息</span></a>
+</li>
   </ul>
 </div>
 
@@ -130,7 +133,7 @@
 						</tr>
 					</thead>
 					<tbody id="user_list_tbody">
-						<!--<tr>
+						<tr>
 							<td><input type="checkbox" /></td>
 							<td>1</td>
 							<td>fdsfA</td>
@@ -138,11 +141,41 @@
 							<td>13420016565</td>
 							<td>2016/5/18 22:09:27</td>
 							<td>...</td>
-							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" value="编辑" /></td>
-						</tr>-->
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>2</td>
+							<td>fsfsd</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"/></td>
+							<td>3</td>
+							<td>ebvf</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"/></td>
+							<td>4</td>
+							<td>gregega</td>
+							<td>125675205@qq.conm</td>
+							<td>13420016565</td>
+							<td>2016/5/18 22:09:27</td>
+							<td>...</td>
+							<td class="edit"><input type="button" class="btn btn-info btn-xs edit_message" name="" id="" value="编辑" /></td>
+						</tr>
 					</tbody>
 				</table>
-				<ul class="pagination pull-right">
+				<!--<ul class="pagination pull-right">
 				    <li>
 				      	<a href="#">
 				        	<span>&laquo;</span>
@@ -157,7 +190,12 @@
 				        	<span>&raquo;</span>
 				      	</a>
 				    </li>
-				  </ul>
+				  </ul>-->
+				  <div class="page">
+				    	<div class="pagination-holder">
+							<div class="light-pagination1" class="pagination"></div>
+						</div>
+					</div>
 			</div>
 		</div>
 		<!--用户列表-->
@@ -182,7 +220,7 @@
 							<th>备注</th>
 						</tr>
 					</thead>
-					<tbody id="user_do_history">
+					<tbody>
 						<tr>
 							<td><input type="checkbox" /></td>
 							<td>1</td>
@@ -192,7 +230,7 @@
 							<td>2016/5/18 22:09:27</td>
 							<td>...</td>
 						</tr>
-						<!--<tr>
+						<tr>
 							<td><input type="checkbox" /></td>
 							<td>2</td>
 							<td>ascas</td>
@@ -209,10 +247,10 @@
 							<td>打氧机</td>
 							<td>2016/5/18 22:09:27</td>
 							<td>...</td>
-						</tr>-->
+						</tr>
 					</tbody>
 				</table>
-				<ul class="pagination pull-right">
+				<!--<ul class="pagination pull-right">
 				    <li>
 				      	<a href="#">
 				        	<span>&laquo;</span>
@@ -226,7 +264,12 @@
 				        	<span>&raquo;</span>
 				      	</a>
 				    </li>
-				  </ul>
+				  </ul>-->
+				  	<div class="page">
+				    	<div class="pagination-holder">
+							<div class="light-pagination2" class="pagination"></div>
+						</div>
+					</div>
 			</div>
 
 			<!--用户操作历史-->
@@ -265,6 +308,7 @@
 	<script src='js/jquery.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
 	<script src="js/common.js"></script>
+	<script src="js/jquery.simplePagination.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/userList.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

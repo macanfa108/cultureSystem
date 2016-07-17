@@ -2,6 +2,7 @@
 /*变量函数*/
 /* 专家知识养殖库*/
 /*首页*/
+/*分页*/
 #login_form {
   user-select: none;
   /*禁止文本选中*/
@@ -331,22 +332,6 @@ hr {
   .edit .edit_message {
     z-index: 2; }
 
-.pagination > li > a,
-.pagination > li > span {
-  margin: 0 5px;
-  border: 1px solid #dddddd;
-  /* 设置所有的边框都为1像素 */ }
-
-.pagination > li:first-child > a,
-.pagination > li:first-child > span,
-.pagination > li:last-child > a,
-.pagination > li:last-child > span {
-  margin-left: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 0px;
-  /* 取消圆角 */ }
-
 #search {
   cursor: pointer; }
 
@@ -370,6 +355,46 @@ hr {
 .warning {
   background: #F5F0F0;
   margin: 0 1%; }
+
+/**
+* CSS themes for simplePagination.js
+*/
+.page {
+  width: 100%;
+  height: auto;
+  text-align: right; }
+
+.simple-pagination {
+  display: inline-block;
+  overflow: hidden;
+  padding: 15px 0;
+  margin: 0 auto; }
+  .simple-pagination li {
+    list-style: none;
+    float: left; }
+
+/*------------------------------------*\
+    Light Theme Styles
+\*------------------------------------*/
+.light-theme a, .light-theme span {
+  float: left;
+  color: #666;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 4px 12px;
+  margin-right: 5px; }
+.light-theme a:hover {
+  text-decoration: none;
+  background: #EEE;
+  color: #666; }
+.light-theme .current {
+  background: #428BCA;
+  padding: 4px 12px;
+  border: none;
+  color: #FFF;
+  cursor: pointer; }
 
 /*平板设计*/
 @media screen and (max-width: 992px) {
