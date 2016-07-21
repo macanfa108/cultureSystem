@@ -1,97 +1,95 @@
 <!doctype html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<title>循环水养殖系统</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="Shortcut Icon" href="images/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/home.css" /> -->
 	<link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
 	<!-- 前端模板：头部header部分 -->
 	<!--头部logo-->
-	<div id="header">
-		<h1><a href="index.html">循环水养殖系统</a></h1>
-	</div>
-	<!--头部logo!-->
-	<!--顶部菜单-->
-	<nav class="navbar navbar-inverse" id="user-nav">
+<div id="header">
+  <h1><a href="index.html">循环水养殖系统</a></h1>
+</div>
+<!--头部logo!-->
+<!--顶部菜单-->
+<nav class="navbar navbar-inverse" id="user-nav" >
 
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">切换按钮</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">切换按钮</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
 
-		<div class="collapse navbar-collapse my-navbar" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li>
-					<a><i class="icon icon-user"></i>  <span class="text">欢迎管理员！</span></a>
-				</li>
-				<li>
-					<a href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a>
-				</li>
-				<li>
-					<a href="login.html"><i class="icon icon-share-alt"></i> <span class="text">登录</span></a>
-				</li>
-				<li>
-					<a href="#"><i class="icon icon-edit"></i> <span class="text">修改个人信息</span></a>
-				</li>
-			</ul>
-		</div>
+<div class="collapse navbar-collapse my-navbar" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav">
+    <li>
+  <a><i class="icon icon-user"></i>  <span class="text">欢迎管理员！</span></a>
+</li>
+<li>
+  <a href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a>
+</li>
+<li>
+  <a href="login.html"><i class="icon icon-share-alt"></i> <span class="text">登录</span></a>
+</li>
+<li>
+  <a href="#"><i class="icon icon-edit"></i> <span class="text">修改个人信息</span></a>
+</li>
+  </ul>
+</div>
 
-	</nav>
-	<!--顶部菜单-->
+</nav>
+<!--顶部菜单-->
 
 
 	<!-- 前端模板：左侧菜单部分 -->
-	<!--左侧菜单栏-->
-	<div id="sidebar">
-		<!--<a href="#" class="visible-xs-block"><i class="icon icon-home"></i> 菜单导航</a>-->
-		<ul style="display: block;">
-			<li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
-			<li> <a href="repository.html"><i class="icon icon-signal"></i> <span>专家知识库</span></a> </li>
-			<li> <a href="deviceControl.html"><i class="icon icon-inbox"></i> <span>设备控制</span></a> </li>
-			<li><a href="dataCollection.html"><i class="icon icon-th"></i> <span>数据采集</span></a></li>
-			<li><a href="algorithmProcessor.html"><i class="icon icon-fullscreen"></i> <span>算法处理</span></a></li>
-			<li class="submenu">
-				<a>
-					<i class="icon icon-th-list"></i> <span>系统管理</span> <span class="label label-primary pull-right ">2</span>
-				</a>
-				<ul>
-					<!-- <li><a href="addDevice.html">添加设备</a></li>
+  <!--左侧菜单栏-->
+<div id="sidebar">
+<!--<a href="#" class="visible-xs-block"><i class="icon icon-home"></i> 菜单导航</a>-->
+<ul style="display: block;">
+  <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
+  <li> <a href="repository.html"><i class="icon icon-signal"></i> <span>专家知识库</span></a> </li>
+  <li> <a href="deviceControl.html"><i class="icon icon-inbox"></i> <span>设备控制</span></a> </li>
+  <li><a href="dataCollection.html"><i class="icon icon-th"></i> <span>数据采集</span></a></li>
+  <li><a href="algorithmProcessor.html"><i class="icon icon-fullscreen"></i> <span>算法处理</span></a></li>
+  <li class="submenu">
+    <a>
+      <i class="icon icon-th-list"></i> <span>系统管理</span> <span class="label label-primary pull-right ">2</span>
+    </a>
+    <ul>
+      <!-- <li><a href="addDevice.html">添加设备</a></li>
       <li><a href="collectionFrequency.html">采集频率</a></li> -->
-					<li><a href="EditIndicators.html">指标设置</a></li>
-					<li><a href="dataManagement.html">数据管理</a></li>
-				</ul>
-			</li>
-			<!-- <li class="submenu"><a><i class="icon icon-pencil"></i> <span>用户管理</span> <span class="label label-primary pull-right ">3</span></a>
+      <li><a href="EditIndicators.html">指标设置</a></li>
+      <li><a href="dataManagement.html">数据管理</a></li>
+    </ul>
+  </li>
+  <!-- <li class="submenu"><a><i class="icon icon-pencil"></i> <span>用户管理</span> <span class="label label-primary pull-right ">3</span></a>
     <ul>
       <li><a href="userList.html">用户列表</a></li>
       <li><a href="addUser.html">添加用户</a></li>
       <li><a href="warningInformation.html">其他</a></li>
     </ul>
   </li> -->
-			<li><a href="userList.html"><i class="icon icon-pencil"></i> <span>用户管理</span></a></li>
-			<!-- <li class="submenu"><a><i class="icon icon-tint"></i> <span>预警信息</span> <span class="label label-primary pull-right ">4</span></a>
+  <li><a href="userList.html"><i class="icon icon-pencil"></i> <span>用户管理</span></a></li>
+  <!-- <li class="submenu"><a><i class="icon icon-tint"></i> <span>预警信息</span> <span class="label label-primary pull-right ">4</span></a>
     <ul>
       <li><a href="pushNotification.html">消息推送</a></li>
       <li><a href="notificationHistory.html">历史消息</a></li>
     </ul>
   </li> -->
-			<li><a href="notificationHistory.html"><i class="icon icon-tint"></i> <span>预警信息</span></a></li>
-		</ul>
-	</div>
-	<!--左侧菜单栏-->
+  <li><a href="notificationHistory.html"><i class="icon icon-tint"></i> <span>预警信息</span></a></li>
+</ul>
+</div>
+<!--左侧菜单栏-->
 
 
 	<!--右边主体内容-->
@@ -422,13 +420,13 @@
 	</div>
 	<!--右边主体内容-->
 
-	<!-- 前端模板：底部版权部分 -->
+  <!-- 前端模板：底部版权部分 -->
 	<!--底部内容-->
-	<div class="container" id='footer'>
-		<p>版权所有 广东海洋大学JKing团队（<a href="http://www.jking.net" target="_blank">www.jking.net</a>） 设计维护</p>
-		<p>Copyright © Guangdong Ocean University JKing Team. All Rights Reserved.</p>
-	</div>
-	<!--底部内容-->
+<div class="container" id='footer'>
+  <p>版权所有 广东海洋大学JKing团队（<a href="http://www.jking.net" target="_blank">www.jking.net</a>） 设计维护</p>
+  <p>Copyright © Guangdong Ocean University JKing Team. All Rights Reserved.</p>
+</div>
+<!--底部内容-->
 
 	<script src='js/jquery.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
@@ -437,5 +435,4 @@
 	<script src="js/jquery.simplePagination.js"></script>
 	<script src="js/dataCollection.js"></script>
 </body>
-
 </html>

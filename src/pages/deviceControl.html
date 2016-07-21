@@ -30,9 +30,154 @@
 			</ol>
 		</div>
 		<!--主内容头部面包屑导航-->
-    <!-- 主内容体 -->
+		<!-- 设备运行的提示模板 -->
+		<!-- <div class="container-fluid">
+			<div class="alert alert-success" role='alert'>
+				<button type="button" class="close" data-dismiss='alert' aria-label='Close'>
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>设备已开启！正在运行中！</strong>
+			</div>
+		</div> -->
+		<!-- 主内容区 -->
+		<div class="container-fluid whiteCard">
+			<!-- 标题区域 -->
+			<div class="titlebar clearfix">
+				<h4 class="pull-left">设备控制</h4>
+				<button type="button" class="btn btn-info pull-right" id='addDeviceBtn' data-toggle='modal' data-target='#myModal'>
+					<span class="icon  icon-plus"></span> 添加设备
+				</button>
+			</div>
+			<!-- 标题区域 -->
+			<!-- 添加设备模态框 -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">添加设备</h4>
+						</div>
+						<div class="modal-body">
+							<form id='addDeviceForm' name='addDeviceForm' class="form-horizontal">
+								<div class="form-group">
+									<label for="deviceId" class="col-sm-2 control-label">设备ID：</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="deviceId" name="deviceId" placeholder="请添加设备ID">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="deviceName" class="col-sm-2 control-label">设备名称：</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="deviceName" name="deviceName" placeholder="请添加设备名称">
+									</div>
 
-    <!-- 主内容体 -->
+								</div>
+								<div class="form-group">
+									<label for="deviceLocation" class="col-sm-2 control-label">设备位置：</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="deviceLocation" name="deviceLocation" placeholder="请添加设备位置">
+									</div>
+								</div>
+								<div id="addMsg" class="text-danger text-center"></div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-success" id="sureAddDevice">确认添加</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 添加设备模态框 -->
+			<!-- 内容体 -->
+			<!-- 设备开启图标 -->
+			<div class="row" id="deviceContainer">
+				<!-- <div class="col-sm-6 col-md-4">
+					<div class="tile deviceTile">
+							<img src="images/投饲机.png" alt="" style="border:1px solid red;" class="deviceImg">
+							<h3>投饲机</h3>
+							<button class="btn btn-success" class='powerBtn'>
+								<span class="icon icon-off"></span> 开启设备
+							</button>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="tile deviceTile">
+							<img src="images/投饲机260.gif" alt="">
+							<h3>投饲机</h3>
+							<button class="btn btn-success">
+								<span class="icon icon-off"></span> 开启设备
+							</button>
+					</div>
+				</div>
+				<div class="clearfix visible-sm"></div>
+				<div class="col-sm-6 col-md-4">
+					<div class="tile deviceTile">
+							<img src="images/投饲机260.gif" alt="">
+							<h3>投饲机</h3>
+							<button class="btn btn-success">
+								<span class="icon icon-off"></span> 开启设备
+							</button>
+					</div>
+				</div> -->
+			</div>
+			<!-- 设备开启图标 -->
+			<!-- 设备列表 -->
+			<!-- <div class="container-fluid deviceDataTable">
+				<h5 class="pull-left">投饲机</h5>
+				<form class="form-inline list_delete pull-right">
+					<button type="button" class="btn btn-info">刷新</button>
+				  	<div class="form-group">
+				    	<div class="input-group">
+				      		<input type="text" class="form-control" placeholder="搜索记录">
+				      		<div class="input-group-addon">搜索</div>
+				    	</div>
+				  	</div>
+				</form>
+				<div class="clearfix"></div>
+				<div class="table-responsive">
+					<table class="table table-hover table-bordered table-striped table-condensed">
+						<thead>
+							<th>数据ID</th>
+							<th>设备ID</th>
+							<th>设备名</th>
+							<th>位置</th>
+							<th>开启时间</th>
+							<th>关闭时间</th>
+							<th>备注</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>投饲机</td>
+								<td>实验楼</td>
+								<td>2016/7/21 10:10:00</td>
+								<td>2016/7/21 10:11:00</td>
+								<td>...</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>2</td>
+								<td>增氧机机</td>
+								<td>实验楼</td>
+								<td>2016/7/21 13:10:00</td>
+								<td>2016/7/21 13:11:00</td>
+								<td>...</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="page">
+					<div class="pagination-holder">
+						<div class="light-pagination1" class="pagination"></div>
+					</div>
+				</div>
+			</div> -->
+			<!-- 设备列表 -->
+			<!-- 内容体 -->
+		</div>
+		<!-- 主内容区 -->
 
 	</div>
 	<!--右边主体内容-->

@@ -3,6 +3,7 @@
 /* 专家知识养殖库*/
 /*首页*/
 /*分页*/
+/*表格背景色*/
 #login_form, .page {
   user-select: none;
   /*禁止文本选中*/
@@ -406,6 +407,30 @@ hr {
 
 .deviceDataTable h5 {
   font-size: 25px; }
+
+#targetSetting {
+  background: #fafafa;
+  margin: 0 1%; }
+  #targetSetting .row {
+    margin: 2% 0; }
+
+#sure {
+  width: 100%; }
+
+.target_list {
+  background: #fff;
+  margin: 1%; }
+  .target_list th, .target_list td {
+    text-align: center; }
+
+#dataSave {
+  background: #fff;
+  margin: 0 1%; }
+  #dataSave fieldset {
+    margin-top: 2%; }
+    #dataSave fieldset .row {
+      margin: 1% 0;
+      line-height: 30px; }
 
 /*平板设计*/
 @media screen and (max-width: 992px) {
