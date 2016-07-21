@@ -1,0 +1,22 @@
+
+@charset "utf-8";
+
+#targetSetting{
+    background: $table_background - 5;
+    margin:0 1%;
+    
+    .row{
+        margin: 2% 0;
+    }
+}
+#sure{
+    width: 100%;
+}
+
+.target_list{
+    background: $table_background;
+    margin:1%;
+    th,td{
+        text-align: center;
+    }
+}

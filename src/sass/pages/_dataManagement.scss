@@ -1,0 +1,17 @@
+
+@charset "utf-8";
+
+#dataSave{
+    background: $table_background;
+    margin:0 1%;
+    
+    fieldset{
+        margin-top: 2%;
+        
+        .row{
+           margin: 1% 0;
+           line-height: 30px;
+        }
+    }
+
+}
