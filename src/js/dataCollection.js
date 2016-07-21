@@ -241,10 +241,16 @@ require(
 
     }//function(ec) end
 );
+
+// 各部分表格
 $(function(){
   //jquery分页
-  $('.light-pagination2').pagination({
-    pages: 20,
-    cssStyle: 'light-theme'
-  });
+  var paginationLength=4;
+  for(var i=1;i<=paginationLength;i++){
+    $('.light-pagination'+i).pagination({
+      pages: 20,
+      cssStyle: 'light-theme'
+    });
+  }
+
 });
