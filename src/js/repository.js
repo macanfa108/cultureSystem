@@ -27,7 +27,7 @@ $(function(){
 
     $("#MessageBox").modal();
     $("#sureUpload").click(function(){
-    	var uploadUrl = $("#context-url").val() + "/knowledge_update.do";
+    	var uploadUrl = "${pageContext.request.contextPath}/knowledge_update.do";
     	if(window.confirm('你确定要更新知识库吗？（更新前请先备份）')){
     		$.ajax({
         	    url: uploadUrl,
@@ -41,7 +41,7 @@ $(function(){
         		if(str == "\"uploadFail\""){
         			$("#uploadMsg").html("文件上传失败！");
         		}else if(str == "\"success\""){
-            		window.location.href=$("#context-url").val() + "/knowledge_showUI.do";
+            		window.location.replace(location.href);
         		}else if(str == "\"FileError\""){
         			$("#uploadMsg").html("上传的文件无效！");
         		}else if(str == "\"typeError\""){

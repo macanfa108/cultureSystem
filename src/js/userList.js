@@ -1,104 +1,44 @@
-
+/*编辑=157
+ * 
+ *
+ *
+ */
 /*用户管理*/
+
 	$(function(){
-			$.ajax({
-				type:"post",
-				url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
-				async:true,
-				cache:false,
-				data:"",
-				dataType:"json",
-				beforeSend:function(){
-					$("body").append("<div id='load'>"+
-					"		<div class='loading'>"+
-					"			<img src='images/ajax-loader-3.gif'/>"+
-					"		</div>"+
-					"	</div>");
-				},
-				success:function(){
-					$("#user_list_tbody").append(
-				"	<tr>"+
-				"			<td><input type='checkbox' /></td>"+
-				"			<td>2</td>"+
-				"			<td>fsfsd</td>"+
-				"			<td>125675205@qq.conm</td>"+
-				"			<td>13420016565</td>"+
-				"			<td>2016/5/18 22:09:27</td>"+
-				"			<td>...</td>"+
-				"			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
-				"	</tr>"+
-				"	<tr>"+
-				"			<td><input type='checkbox' /></td>"+
-				"			<td>2</td>"+
-				"			<td>fsfsd</td>"+
-				"			<td>125675205@qq.conm</td>"+
-				"			<td>13420016565</td>"+
-				"			<td>2016/5/18 22:09:27</td>"+
-				"			<td>...</td>"+
-				"			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
-				"	</tr>");
-					$("#user_do_history").append(
-				"	<tr>"+
-				"			<td><input type='checkbox' /></td>"+
-				"			<td>2</td>"+
-				"			<td>fsfsd</td>"+
-				"			<td>125675205@qq.conm</td>"+
-				"			<td>13420016565</td>"+
-				"			<td>2016/5/18 22:09:27</td>"+
-				"			<td>...</td>"+
-				"	</tr>"+
-				"	<tr>"+
-				"			<td><input type='checkbox' /></td>"+
-				"			<td>2</td>"+
-				"			<td>fsfsd</td>"+
-				"			<td>125675205@qq.conm</td>"+
-				"			<td>13420016565</td>"+
-				"			<td>2016/5/18 22:09:27</td>"+
-				"			<td>...</td>"+
-				"	</tr>");
-				},
-				error:function(){
-					$("#user_list").prepend(
-"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
-"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
-"						</button>"+
-"						<strong>编辑失败！服务器开小差了￣へ￣</strong>"+
-"						</div>");	
-					$("#alert1").fadeOut(2500);
-				},
-				complete:function(){
-					$("#load").remove();
-				}
-				
-			});
-		
-			//jquery分页
-	        $('.light-pagination1').pagination({
-	        	pages: 20,
-	        	cssStyle: 'light-theme'
-	        });
-	        //jquery分页
-	        $('.light-pagination2').pagination({
-	        	pages: 20,
-	        	cssStyle: 'light-theme'
-	        });
-		
+
+		var page = 1;
+		//页面一加载的时候发送ajax请求
+    	var totalPages1;
+       	loadAjax1(page);
+        
+        //用户操作历史记录请求的ajax
+        var page2 = 1;
+        var totalPages2;
+        loadAjax2(page2);
+        
+
+
 			//页面已加载的时候获取文本框的焦点
 			$("#user_message").focus();
+			//删除用户
 			$("#delete_user").click(function(){
 				deleteData("#delete_user");
 			});
+			//删除用户操作历史
 			$("#delete_history").click(function(){
 				deleteData("#delete_history");
 			});
-			
+//-----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+			//删除用户：
 			function deleteData(delete_id){
 				var $checkboxs = $(delete_id).parent("form").siblings("table").find("tbody").find("input[type=checkbox]");
 				var checkboxLen = $checkboxs.length;//找到tr中全部checkbox的长度
 				
 				var $checkeds = $(delete_id).parent("form").siblings("table").find("tbody").find("input:checked");
 				var checkedLen = $checkeds.length;//找到选中的checkbox长度
-				var $userId = $checkeds.parent().next().text();//拿到选中td的id
+				var $userId = $checkeds.parent().next();//拿到选中td的id
 				var idLen = $userId.length;
 				var arr=[];
 				//全选
@@ -124,15 +64,19 @@
 					
 					$("#sure_delete").click(function(){
 						for(var i=0;i<idLen;i++){
-							arr.push($userId[i]);
+							arr.push($userId[i].innerText);
 						}
-						arr = arr.toString();//转换成字符传 
-//						alert(arr);
+						ids = arr.toString();//转换成字符传 
+						alert(ids);
+
+						ids={"ids":ids}
+						
+						//点击确定之后发送请求删除数据
 						$.ajax({
 							type:"post",
-							url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
-							async:true,
-							data:arr,
+							data:ids,
+							url:"${pageContext.request.contextPath}/user_deleteByIds.do?",
+							async:false,
 							dataType:"json",
 							cache:false,
 							beforeSend:function(){
@@ -142,16 +86,37 @@
 								"		</div>"+
 								"	</div>");
 							},
-							success:function(){
-								$("#user_list").prepend(
-			"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
-			"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
-			"						</button>"+
-			"						<strong>删除用户成功!</strong>"+
-			"						</div>");	
-								$("#alert1").fadeOut(2500);
+							success:function(data){
+								//测试返回的数据
+//								var jsona = JSON.stringify(data);
+//								alert(jsona);
+								if(data.result.result == "success"){
+									
+									//删除后去掉全选的勾选
+									var $chAll = $("table").find("input.checkAll").prop("checked",false);
+									
+									var deleteTrs = $checkeds.parents("tr");
+									$(deleteTrs).remove();
+									$("#user_list").prepend(
+				"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
+				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+				"						</button>"+
+				"						<strong>删除用户成功!</strong>"+
+				"						</div>");	
+									$("#alert1").fadeOut(2500);
+								}else{
+									$("#user_list").prepend(
+				"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+				"						</button>"+
+				"						<strong>删除用户失败!</strong>"+
+				"						</div>");	
+									$("#alert1").fadeOut(2500);
+								}
 							},
 							error:function(){
+								
+
 								$("#user_list").prepend(
 			"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
 			"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
@@ -162,6 +127,7 @@
 							},
 							complete:function(){
 								$("#load").remove();
+
 							}
 						});
 					});
@@ -170,9 +136,10 @@
 			}
 			
 				//点击td选中tr
-				$("table").on("click","input[type=checkbox]",function(){
-//					var checked = $(this).parent().find("input").prop("checked");
-//					$(this).parent().find("input").prop("checked",!checked);
+				//$("table").find("tr").find("td:not(:last-child)").on("click",function(){
+			 $("table").on("click","input[type=checkbox]",function(){
+					//var checked = $(this).parent().find("input").prop("checked");
+					//$(this).parent().find("input").prop("checked",!checked);
 					//选中的长度等于总长度就把全选按钮勾上
 					var trLen = $(this).parents("tbody").find("tr").length;
 					var checktrLen = $(this).parents("tbody").find("tr").find("input:checked").length;
@@ -193,42 +160,45 @@
 					//alert($(this).prop("checked"));
 				});
 			
-				
+	
+//---------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
 				//点击编辑用户信息
-				$("table").on("click",".edit_message",function(){
+				/*
+				 * 返回数据格式：{"result", "success"} {"result", "failure"}
+				 */
+				 $("table").on("click",".edit_message",function(){
+				//$("table").find(".edit_message").click(function(){
 					var $tds = $(this).parents("tr").find("td");
 					var tdslen = $tds.length;
 					var arr2 = [];
-					for(var i=2;i<tdslen;i++){
+					for(var i=1;i<tdslen;i++){
 						arr2.push($tds[i].innerText);
 					}
-					
-					//alert(typeof arr2);object
-					//arr2 = arr2.toString();
-					//alert(typeof arr2);string
+					//默认是小窗口，去掉下面的样式就变成大窗口
 					$("#myModal").removeClass("bs-example-modal-sm");
 					$(".modal-dialog").removeClass("modal-sm");
-					
+					//给窗口中添加表单
 					$(".modal-body").html(
 					"	<form>"+
 					"	<div class='row'>"+
 			        "    <div class='col-sm-6 form-group'>"+
 			       	" 	 	<label for='recipient-name' class='control-label'>用户名</label>"+
-           			" 	 	<input type='text' name='user_name' placeholder='必填' id='user_name' class='form-control' value='"+arr2[0]+"'>"+
+           			" 	 	<input type='text' name='user_name' placeholder='必填' id='user_name' class='form-control' value='"+arr2[1]+"'>"+
            			"	 </div>"+
 			        "    <div class='col-sm-6 form-group'>"+
 			       	" 	 	<label for='recipient-name' class='control-label'>邮箱</label>"+
-           			" 	 	<input type='email' placeholder='必填'  name='user_email' id='user_email' class='form-control' value='"+arr2[1]+"'>"+
+           			" 	 	<input type='email' placeholder='必填'  name='user_email' id='user_email' class='form-control' value='"+arr2[2]+"'>"+
            			"	 </div>"+
 			        "  </div>"+
 					"	<div class='row'>"+
 			        "    <div class='col-sm-6 form-group'>"+
 			       	" 	 	<label for='recipient-name' class='control-label'>手机</label>"+
-           			" 	 	<input type='text' placeholder='必填' name='user_phone' id='user_phone' class='form-control' value='"+arr2[2]+"'>"+
+           			" 	 	<input type='text' placeholder='必填' name='user_phone' id='user_phone' class='form-control' value='"+arr2[3]+"'>"+
            			"	 </div>"+
 			        "    <div class='col-sm-6 form-group'>"+
 			       	" 	 	<label for='recipient-name' class='control-label'>备注</label>"+
-           			" 	 	<input type='text' name='user_other' id='user_other' class='form-control' value='"+arr2[4]+"'>"+
+           			" 	 	<input type='text' name='user_other' id='user_other' class='form-control' value='"+arr2[5]+"'>"+
            			"	 </div>"+
 			        "  </div>"+
 			        "  <div class='row'>"+
@@ -243,14 +213,14 @@
 					
 					//编辑后保存用户到数据库
 					$("#save").click(function(){
+						alert("编辑方法");
 						var arr2_1 = [];
 						arr2_1[0] = $("#user_name").val();
 						arr2_1[1] = $("#user_email").val();
 						arr2_1[2] = $("#user_phone").val();
-//						arr2_1[3] = $("#user_createTime").val();
 						arr2_1[4] = $("#user_other").val();
 						
-						//验证表单 
+						//验证表单
 						if(arr2_1[0]=="" || arr2_1[1] =="" || arr2_1[2] ==""){
 							$(".tips").html("<p style='color:red;text-align:center'>必填信息不能为空！</p>");
 							return false;
@@ -263,11 +233,23 @@
 								$(".tips").html("<p style='color:red;text-align:center'>手机号码格式不正确！</p>");
 								return false;
 							}else{
+								//验证成功之后拿到表单里面的值
+
+								var formParm = {
+										"user.id":arr2[0],
+										"user.username":$("#user_name").val(),
+										"user.passwd":$("#user_name").val(),
+										"user.phonenumber":$("#user_phone").val(),
+										"user.email":$("#user_email").val(),
+										"user.description":$("#user_other").val()
+								}
+//								alert("提交的修改数据是"+JSON.stringify( formParm ));
+								//编辑好发送数据给后台添加成功之后返回success
 								$.ajax({
 									type:"post",
-									url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
+									url:"${pageContext.request.contextPath}/user_updateUser.do",
 									async:true,
-									data:arr2_1,
+									data:formParm,
 									dataType:"json",
 									cache:false,
 									beforeSend:function(){
@@ -277,14 +259,40 @@
 										"		</div>"+
 										"	</div>");
 									},
-									success:function(){
-										$("#user_list").prepend(
-					"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
-					"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
-					"						</button>"+
-					"						<strong>编辑用户成功!</strong>"+
-					"						</div>");	
-										$("#alert1").fadeOut(2500);
+									success:function(data){
+										var editObj = data;
+										alert("你返回的"+JSON.stringify(data));
+										//判断是否成功修改
+										if(data.result.result == "success"){
+											$this.parents("tr").html(
+													"			<td><input type='checkbox' /></td>"+
+													"			<td>"+editObj.user.id+"</td>"+
+													"			<td>"+editObj.user.username+"</td>"+
+													"			<td>"+editObj.user.email+"</td>"+
+													"			<td>"+editObj.user.phonenumber+"</td>"+
+													"			<td>"+editObj.user.registerTime+"</td>"+
+													"			<td>"+editObj.user.description+"</td>"+
+							        	            "			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
+													"	</tr>");
+											
+											$("#user_list").prepend(
+						"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
+						"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+						"						</button>"+
+						"						<strong>编辑用户成功!</strong>"+
+						"						</div>");	
+											$("#alert1").fadeOut(2500);
+										}else{
+											$("#user_list").prepend(
+						"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+						"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+						"						</button>"+
+						"						<strong>编辑用户失败!</strong>"+
+						"						</div>");	
+											$("#alert1").fadeOut(2500);
+										}
+
+
 									},
 									error:function(){
 										$("#user_list").prepend(
@@ -305,13 +313,17 @@
 					
 				});
 			});	
-				
+//---------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------				
 				//点击添加用户
-				
+				/*
+				 * 返回数据格式：保存成功：{"result", "success"} 用户名已经存在：{"result", "failure"}
+				 */
 				$("#add_user").click(function(){
+					//先移除小窗口的样式再进行添加表单
 					$("#myModal").removeClass("bs-example-modal-sm");
 					$(".modal-dialog").removeClass("modal-sm");
-					
+					//添加表单到模态框中
 					$(".modal-body").html(
 					"	<form id='new_user'>"+
 					"	<div class='row'>"+
@@ -360,6 +372,7 @@
 					
 					//添加并完善用户信息之后保存数据
 					$("#save_user").click(function(){
+						//alert("保存方法1");
 						var arr3 = [];//重新初始化数组
 						for(var i=0;i<input_len;i++){
 							arr3.push($inputs[i].value);
@@ -370,7 +383,7 @@
 							$(".tips").html("<p style='color:red;text-align:center'>必填信息不能为空！</p>");
 							return false;
 						}else{
-							
+							//非空验证进入格式验证
 							if(!validator("email").test(arr3[1])){
 								$(".tips").html("<p style='color:red;text-align:center'>邮箱格式不正确！</p>");
 								return false;
@@ -382,23 +395,76 @@
 								return false;
 							}else{
 //								var timer = null;
+								var formParm1 = {
+										"user.username":arr3[0],
+										"user.email":arr3[1],
+										"user.passwd":arr3[2],
+										"user.phonenumber":arr3[4],
+										"user.description":arr3[5],
+								}
+								//alert("打印添加的数据"+JSON.stringify( formParm1 ));
+								//验证成功之后发送请求
 								$.ajax({
 									type:"post",
-									url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
-									async:true,
+									url:"${pageContext.request.contextPath}/user_addUser.do",
+									async:false,
 									cache:false,
-									data:arr3,
+									data:formParm1,
 									dataType:"json",
 									beforeSend:function(){
-	//									$("#save_user").attr({"disabled":"disabled"});
-	//									$("#save_user").text("保存中...");
 										$("body").append("<div id='load'>"+
 										"		<div class='loading'>"+
 										"			<img src='images/ajax-loader-3.gif'/>"+
 										"		</div>"+
 										"	</div>");
 									},
-									success:function(){
+									success:function(data){
+										var updatePages = data;
+//										alert(JSON.stringify(updatePages));
+										var datastr = JSON.stringify( data );
+//										alert(datastr);
+										var dataObj2 = data.user;
+//										alert(dataObj2);
+										var trLength = $("#user_list_tbody").find("tr").length;
+//										alert(trLength);
+										if(data.result.result == "success"){
+												++totalPages1;
+												$("#user_list").prepend(
+							"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
+			 				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+			 				"						</button>"+
+			  				"						<strong>保存用户成功!</strong>"+
+							"						</div>");	
+												$("#alert1").fadeOut(2500);
+												
+												if(trLength==4){
+													return false;
+												}
+												alert(trLength);
+												$("#user_list_tbody").append(
+							        	            "	<tr>"+
+							        	            "			<td><input type='checkbox' /></td>"+
+							        	            "			<td>"+dataObj2.id+"</td>"+
+							        	            "			<td>"+dataObj2.username+"</td>"+
+							        	            "			<td>"+dataObj2.email+"</td>"+
+							        	            "			<td>"+dataObj2.phonenumber+"</td>"+
+							        	            "			<td>"+dataObj2.registerTime+"7</td>"+
+							        	            "			<td>"+dataObj2.description+"</td>"+
+							        	            "			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
+							        	            "	</tr>");
+											
+										}else{
+											$("#user_list").prepend(
+						"						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+		 				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+		 				"						</button>"+
+		  				"						<strong>该用户名已经存在，请重新输入！</strong>"+
+						"						</div>");	
+											$("#alert1").fadeOut(3000);
+										}
+
+										var stt = JSON.stringify( data );
+										//if(jsonStr === "\"success\""){
 										$("#user_list").prepend(
 					"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
 	 				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
@@ -406,6 +472,7 @@
 	  				"						<strong>保存用户成功!</strong>"+
 					"						</div>");	
 										$("#alert1").fadeOut(2500);
+
 									},		
 									error:function(){
 										$("#save_user").attr({"data-dismiss":'modal'});
@@ -433,15 +500,17 @@
 				
 			//点击搜索用户
 			$("#search").click(function(){
-				
+				//拿到搜索框中的值
 				var userMsgValue = $("#user_message").val();
+//				alert(userMsgValue);
 				if(userMsgValue){
 //					alert(userMsgValue);
+					//进行后台查询
 					$.ajax({
 						type:"post",
-						url:"http://cors.itxti.net/?weschool.jking.net/search?anywords=%22test%22&page=2&rows=5",
+						url:"${pageContext.request.contextPath}/user_findByName.do",
 						async:true,
-						data:userMsgValue,
+						data:{"user.username":userMsgValue},
 						dataType:"json",
 						cache:false,
 						beforeSend:function(){
@@ -451,26 +520,41 @@
 							"		</div>"+
 							"	</div>");
 						},
-						success:function(){
-							$("#user_list").prepend(
-				"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
- 				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
- 				"						</button>"+
-  				"						<strong>查询用户成功!</strong>"+
-				"						</div>");	
-							$("#alert1").fadeOut(2500);
-							
-							//查询成功返回数据
-							$("#user_list_tbody").html("<tr>"+
-						"	<td><input type='checkbox' /></td>"+
-						"	<td>1</td>"+
-						"	<td>fdsfA</td>"+
-						"	<td>125675205@qq.conm</td>"+
-						"	<td>13420016565</td>"+
-						"	<td>2016/5/18 22:09:27</td>"+
-						"	<td>...</td>"+
-						"	<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
-					"	</tr>");
+						success:function(data){
+							var searchUserStr = JSON.stringify(data);
+//							alert("前台查找"+searchUserStr);
+							var searchData = data.user;
+//							alert(JSON.stringify(searchData));
+							if(data.result.result == "success"){
+								//查询成功返回数据放到表格中
+								$("#user_list_tbody").html(
+								"	 <tr class='success'>"+
+									"	<td><input type='checkbox' /></td>"+
+									"	<td>"+searchData.id+"</td>"+
+									"	<td>"+searchData.username+"</td>"+
+									"	<td>"+searchData.email+"</td>"+
+									"	<td>"+searchData.phonenumber+"</td>"+
+									"	<td>"+searchData.registerTime+"</td>"+
+									"	<td>"+searchData.description+"</td>"+
+									"	<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
+								"	</tr>");
+								
+								$("#user_list").prepend(
+					"						<div class='alert alert-success alert-dismissible fade in' id='alert1' role='alert'>"+
+	 				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+	 				"						</button>"+
+	  				"						<strong>查询用户成功!</strong>"+
+					"						</div>");	
+								$("#alert1").fadeOut(2500);
+							}else{
+								$("#user_list").prepend(
+			    "						<div class='alert alert-danger alert-dismissible fade in' id='alert2' role='alert'>"+
+				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+				"						</button>"+
+				"						<strong>没有找到该用户！</strong>"+
+		     	"						</div>");
+								$("#alert2").fadeOut(2500);
+							}
 						},
 						error:function(){
 							
@@ -489,6 +573,136 @@
 					
 				}
 			});
+			
+			//页面一加载的时候发送ajax请求        
+			function loadAjax1(page){
+	        	 $.ajax({
+	                 type:"post",
+	                 url:"${pageContext.request.contextPath}/user_selectPage.do?page.page="+page,
+	                 async:false,
+	                 cache:false,
+	                 data:"",
+	                 dataType:"json",
+	                 beforeSend:function(){
+	                     $("body").append("<div id='load'>"+
+	                     "		<div class='loading'>"+
+	                     "			<img src='images/ajax-loader-3.gif'/>"+
+	                     "		</div>"+
+	                     "	</div>");
+	                 },
+	                 success:function(data){
+	                	 //测试拿到数据格式是否正确
+//	                 	var i = JSON.stringify(data);
+//	                 	alert(i);
+	                	 //加载页面的时候拿到总页面数量
+	                 	totalPages1= data.result.pageNum;
+//	                 	alert(totalPages1);
+	                 	//拿到用户数据长度
+	                 	var dataObj = data.result.rows;
+	                 	var len = dataObj.length;
+	                	//先清空列表
+	             		$("#user_list_tbody").html("");
+	             		for(var i=0;i<len;i++){
+	                 		$("#user_list_tbody").append(
+	             	            "	<tr>"+
+	             	            "			<td><input type='checkbox' /></td>"+
+	             	            "			<td>"+dataObj[i].id+"</td>"+
+	             	            "			<td>"+dataObj[i].username+"</td>"+
+	             	            "			<td>"+dataObj[i].email+"</td>"+
+	             	            "			<td>"+dataObj[i].phonenumber+"</td>"+
+	             	            "			<td>"+dataObj[i].registerTime+"7</td>"+
+	             	            "			<td>"+dataObj[i].description+"</td>"+
+	             	            "			<td class='edit'><input type='button' class='btn btn-info btn-xs edit_message' value='编辑' /></td>"+
+	             	            "	</tr>");
+	                 	}
+	             		
+	             		
+	                 },
+	                 error:function(){
+	                     $("#user_list").prepend(
+	     "						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+	     "						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+	     "						</button>"+
+	     "						<strong>加载失败！服务器开小差了￣へ￣</strong>"+
+	     "						</div>");
+	                     $("#alert1").fadeOut(2500);
+	                 },
+	                 complete:function(){
+	                     $("#load").remove();
+	                 }
+	             });
+	        } 
+			
+			//用户操作历史记录请求的ajax
+	        function loadAjax2(page2){
+		       	 $.ajax({
+		                type:"post",
+		                url:"${pageContext.request.contextPath}/user_selectPage.do?page.page="+page2,
+		                async:false,
+		                cache:false,
+		                data:"",
+		                dataType:"json",
+		                beforeSend:function(){
+		                    $("body").append("<div id='load'>"+
+		                    "		<div class='loading'>"+
+		                    "			<img src='images/ajax-loader-3.gif'/>"+
+		                    "		</div>"+
+		                    "	</div>");
+		                },
+		                success:function(data){
+		                	 //加载页面的时候拿到总页面数量
+		                 	totalPages2= data.result.pageNum;
+		                 	//拿到用户数据长度
+		                	var dataObj = data.result.rows;
+		                	var len = dataObj.length;
+		                	//先清空列表
+	                 		$("#user_do_history").html("");
+	                 		for(var i=0;i<len;i++){
+	                     		$("#user_do_history").append(
+	                 	            "	<tr>"+
+	                 	            "			<td><input type='checkbox' /></td>"+
+	                 	            "			<td>"+dataObj[i].id+"</td>"+
+	                 	            "			<td>"+dataObj[i].username+"</td>"+
+	                 	            "			<td>"+dataObj[i].email+"</td>"+
+	                 	            "			<td>"+dataObj[i].phonenumber+"</td>"+
+	                 	            "			<td>"+dataObj[i].registerTime+"7</td>"+
+	                 	            "			<td>"+dataObj[i].description+"</td>");
+	                     	}	
+		                },
+		                error:function(){
+		                    $("#user_list").prepend(
+		    "						<div class='alert alert-danger alert-dismissible fade in' id='alert1' role='alert'>"+
+		    "						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+		    "						</button>"+
+		    "						<strong>加载失败！服务器开小差了￣へ￣</strong>"+
+		    "						</div>");
+		                    $("#alert1").fadeOut(2500);
+		                },
+		                complete:function(){
+		                    $("#load").remove();
+		                }
+		            });
+	       } 	        
+
+		      //用户列表分页
+
+	           $('.light-pagination1').pagination({
+		        	pages: totalPages1,
+		           	cssStyle: 'light-theme',
+		           	onPageClick:function(page){
+		               	loadAjax1(page);
+	           	}
+	           });    
+		        
+		        
+		      //用户操作历史分页
+		        $('.light-pagination2').pagination({
+		        	pages: totalPages2,
+		        	cssStyle: 'light-theme',
+		           	onPageClick:function(page){
+		               	loadAjax2(page);
+		           	}
+		        });
 			
 			
 			//邮箱,手机号码正则表达式验证

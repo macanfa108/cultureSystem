@@ -5,7 +5,7 @@
 			var o = $.extend({
 				items: 1,
 				itemsOnPage: 1,
-				pages: 0,
+				pages: 20,
 				displayedPages: 3,
 				edges: 1,
 				currentPage: 1,
@@ -23,6 +23,7 @@
 				},
 				onInit: function() {
 					// Callback triggered immediately after initialization
+					//alert("0");
 				}
 			}, options || {});
 
