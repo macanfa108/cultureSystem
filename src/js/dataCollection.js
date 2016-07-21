@@ -243,3 +243,10 @@ require(
 
     }//function(ec) end
 );
+$(function(){
+  //jquery分页
+  $('.light-pagination2').pagination({
+    pages: 20,
+    cssStyle: 'light-theme'
+  });
+});
