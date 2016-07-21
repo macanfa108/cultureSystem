@@ -8,14 +8,14 @@
     margin-top:-20px;
 
     h1{
-        height:31px;
-        width:191px;
-
-//      background: url(../images/logo.png) no-repeat scroll 0 0 transparent;
-//      line-height: 600px;
+        height:40px;
+        width:190px;
+        background:url("../images/logo.png") no-repeat;
+        // background-size:cover;
+        background-position:center;
         line-height: 20px;
-        text-indent: 1em;
-//      overflow: hidden;
+        text-indent:-999px;
+        overflow: hidden;
         position:relative;
         top:26px;
         left:20px;

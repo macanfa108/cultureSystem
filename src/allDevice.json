@@ -1,0 +1,16 @@
+[{
+  "id":1,
+  "deviceName":"投饲机",
+  "imgUrl":"images/feeder.png",
+  "activeImgUrl":"images/feederActive.gif"
+},{
+  "id":2,
+  "deviceName":"增氧机",
+  "imgUrl":"images/aerator.png",
+  "activeImgUrl":"images/aeratorActive.gif"
+},{
+  "id":3,
+  "deviceName":"抽水泵",
+  "imgUrl":"images/wellPump.png",
+  "activeImgUrl":"images/wellPumpActive.gif"
+}]

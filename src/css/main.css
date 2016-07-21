@@ -97,10 +97,13 @@ hr {
   background-color: #2E363F;
   margin-top: -20px; }
   #header h1 {
-    height: 31px;
-    width: 191px;
+    height: 40px;
+    width: 190px;
+    background: url("../images/logo.png") no-repeat;
+    background-position: center;
     line-height: 20px;
-    text-indent: 1em;
+    text-indent: -999px;
+    overflow: hidden;
     position: relative;
     top: 26px;
     left: 20px; }
@@ -338,7 +341,8 @@ hr {
 #alert1, #alert2 {
   width: 200px;
   height: 50px;
-  text-align: center; }
+  text-align: center;
+  z-index: 999; }
 
 #load {
   width: 100%;
@@ -396,14 +400,21 @@ hr {
   color: #FFF;
   cursor: pointer; }
 
+.deviceTile {
+  color: #666;
+  font-weight: bolder; }
+
+.deviceDataTable h5 {
+  font-size: 25px; }
+
 /*平板设计*/
 @media screen and (max-width: 992px) {
   body {
     background: #2E363F; }
 
   #header h1 {
-    top: 6px;
-    left: 35px; }
+    top: 0px;
+    left: 44px; }
 
   #sidebar {
     width: 43px; }
