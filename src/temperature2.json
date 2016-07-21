@@ -20,4 +20,26 @@
     "maximum":8.58,
     "minimum":8.24,
     "averageNum":8.33
+},{
+    "title":"溶氧饱和度表",
+    "unit":"%",
+    "collectionFrequency":3,
+    "latestData":{
+      "latestValue":102.20,
+      "lastReceiveTime":"2016/12/13 22:12:33"
+    },
+    "maximum":102.20,
+    "minimum":69.00,
+    "averageNum":101.55
+},{
+    "title":"PH值表",
+    "unit":"",
+    "collectionFrequency":3,
+    "latestData":{
+      "latestValue":7.11,
+      "lastReceiveTime":"2016/12/13 22:12:33"
+    },
+    "maximum":7.12,
+    "minimum":6.72,
+    "averageNum":7.00
 }]
