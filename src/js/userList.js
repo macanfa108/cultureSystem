@@ -63,15 +63,15 @@
 "						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
 "						</button>"+
 "						<strong>编辑失败！服务器开小差了￣へ￣</strong>"+
-"						</div>");	
+"						</div>");
 					$("#alert1").fadeOut(2500);
 				},
 				complete:function(){
 					$("#load").remove();
 				}
-				
+
 			});
-		
+
 			//jquery分页
 	        $('.light-pagination1').pagination({
 	        	pages: 20,
@@ -82,7 +82,7 @@
 	        	pages: 20,
 	        	cssStyle: 'light-theme'
 	        });
-		
+
 			//页面已加载的时候获取文本框的焦点
 			$("#user_message").focus();
 			$("#delete_user").click(function(){
@@ -91,11 +91,11 @@
 			$("#delete_history").click(function(){
 				deleteData("#delete_history");
 			});
-			
+
 			function deleteData(delete_id){
 				var $checkboxs = $(delete_id).parent("form").siblings("table").find("tbody").find("input[type=checkbox]");
 				var checkboxLen = $checkboxs.length;//找到tr中全部checkbox的长度
-				
+
 				var $checkeds = $(delete_id).parent("form").siblings("table").find("tbody").find("input:checked");
 				var checkedLen = $checkeds.length;//找到选中的checkbox长度
 				var $userId = $checkeds.parent().next().text();//拿到选中td的id
@@ -106,7 +106,7 @@
 				.siblings("table").find("thead").find("input:checked");
 				var checkedAllLen = $checkedAll.length;
 
-				
+
 				//判断是否有选择删除的数据
 				if(checkedAllLen==0 && checkedLen==0){
 					$("#myModal").addClass("bs-example-modal-sm");
@@ -121,12 +121,12 @@
 					$(".modal-footer").html("<button type='button' id='sure_delete' class='btn btn-primary' data-dismiss='modal'>确定</button>"+
 					"<button type='button' class='btn btn-danger' data-dismiss='modal'>取消</button>");
 					$('#myModal').modal();
-					
+
 					$("#sure_delete").click(function(){
 						for(var i=0;i<idLen;i++){
 							arr.push($userId[i]);
 						}
-						arr = arr.toString();//转换成字符传 
+						arr = arr.toString();//转换成字符传
 //						alert(arr);
 						$.ajax({
 							type:"post",
@@ -148,7 +148,7 @@
 			"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
 			"						</button>"+
 			"						<strong>删除用户成功!</strong>"+
-			"						</div>");	
+			"						</div>");
 								$("#alert1").fadeOut(2500);
 							},
 							error:function(){
@@ -157,7 +157,7 @@
 			"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
 			"						</button>"+
 			"						<strong>编辑失败！服务器开小差了￣へ￣</strong>"+
-			"						</div>");	
+			"						</div>");
 								$("#alert1").fadeOut(2500);
 							},
 							complete:function(){
@@ -166,9 +166,9 @@
 						});
 					});
 				}
-				
+
 			}
-			
+
 				//点击td选中tr
 				$("table").on("click","input[type=checkbox]",function(){
 //					var checked = $(this).parent().find("input").prop("checked");
@@ -180,20 +180,20 @@
 					if(trLen == checktrLen){
 						$checkAll.prop("checked",true);
 					}else{
-						$checkAll.prop("checked",false);					
+						$checkAll.prop("checked",false);
 					}
 				});
-			
-			
+
+
 				//点击全选
-				var $table = $("table"); 
+				var $table = $("table");
 				$table.find(".checkAll").click(function(){
 					//全选反选
 					$(this).parents("thead").siblings("tbody").find("input").prop("checked",$(this).prop("checked"));
 					//alert($(this).prop("checked"));
 				});
-			
-				
+
+
 				//点击编辑用户信息
 				$("table").on("click",".edit_message",function(){
 					var $tds = $(this).parents("tr").find("td");
@@ -202,13 +202,13 @@
 					for(var i=2;i<tdslen;i++){
 						arr2.push($tds[i].innerText);
 					}
-					
+
 					//alert(typeof arr2);object
 					//arr2 = arr2.toString();
 					//alert(typeof arr2);string
 					$("#myModal").removeClass("bs-example-modal-sm");
 					$(".modal-dialog").removeClass("modal-sm");
-					
+
 					$(".modal-body").html(
 					"	<form>"+
 					"	<div class='row'>"+
@@ -240,7 +240,7 @@
 					$(".modal-footer").html("<button type='button' id='save' class='btn btn-primary' data-dismiss='modal'>保存</button>"+
 					"<button type='button' class='btn btn-danger' data-dismiss='modal' >取消</button>");
 					$('#myModal').modal();
-					
+
 					//编辑后保存用户到数据库
 					$("#save").click(function(){
 						var arr2_1 = [];
@@ -249,13 +249,13 @@
 						arr2_1[2] = $("#user_phone").val();
 //						arr2_1[3] = $("#user_createTime").val();
 						arr2_1[4] = $("#user_other").val();
-						
-						//验证表单 
+
+						//验证表单
 						if(arr2_1[0]=="" || arr2_1[1] =="" || arr2_1[2] ==""){
 							$(".tips").html("<p style='color:red;text-align:center'>必填信息不能为空！</p>");
 							return false;
 						}else{
-							
+
 							if(!validator("email").test(arr2_1[1])){
 								$(".tips").html("<p style='color:red;text-align:center'>邮箱格式不正确！</p>");
 								return false;
@@ -283,7 +283,7 @@
 					"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
 					"						</button>"+
 					"						<strong>编辑用户成功!</strong>"+
-					"						</div>");	
+					"						</div>");
 										$("#alert1").fadeOut(2500);
 									},
 									error:function(){
@@ -292,7 +292,7 @@
 					"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
 					"						</button>"+
 					"						<strong>编辑用户失败！服务器开小差了￣へ￣</strong>"+
-					"						</div>");	
+					"						</div>");
 										$("#alert1").fadeOut(2500);
 									},
 									complete:function(){
@@ -300,18 +300,18 @@
 									}
 								});
 						}
-						
+
 					};
-					
+
 				});
-			});	
-				
+			});
+
 				//点击添加用户
-				
+
 				$("#add_user").click(function(){
 					$("#myModal").removeClass("bs-example-modal-sm");
 					$(".modal-dialog").removeClass("modal-sm");
-					
+
 					$(".modal-body").html(
 					"	<form id='new_user'>"+
 					"	<div class='row'>"+
@@ -357,20 +357,20 @@
 					var $inputs =  $("#new_user").find(".form-control");
 					var input_len =$inputs.length;
 					//console.log(input_len);
-					
+
 					//添加并完善用户信息之后保存数据
 					$("#save_user").click(function(){
 						var arr3 = [];//重新初始化数组
 						for(var i=0;i<input_len;i++){
 							arr3.push($inputs[i].value);
 						}
-						
-						//验证表单 
+
+						//验证表单
 						if(arr3[0]=="" || arr3[1] =="" || arr3[2] =="" || arr3[3]== "" || arr3[4]== ""){
 							$(".tips").html("<p style='color:red;text-align:center'>必填信息不能为空！</p>");
 							return false;
 						}else{
-							
+
 							if(!validator("email").test(arr3[1])){
 								$(".tips").html("<p style='color:red;text-align:center'>邮箱格式不正确！</p>");
 								return false;
@@ -404,9 +404,9 @@
 	 				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
 	 				"						</button>"+
 	  				"						<strong>保存用户成功!</strong>"+
-					"						</div>");	
+					"						</div>");
 										$("#alert1").fadeOut(2500);
-									},		
+									},
 									error:function(){
 										$("#save_user").attr({"data-dismiss":'modal'});
 										$("#user_list").prepend(
@@ -416,7 +416,7 @@
 	  				"						<strong>保存用户失败！服务器开小差了￣へ￣</strong>"+
 					"						</div>");
 										$("#alert2").fadeOut(2500);
-										
+
 									},
 									complete:function(){
 										$("#load").remove();
@@ -424,16 +424,16 @@
 									}
 								});
 							}
-							
+
 						}
 					});
 				});
-				
-				
-				
+
+
+
 			//点击搜索用户
 			$("#search").click(function(){
-				
+
 				var userMsgValue = $("#user_message").val();
 				if(userMsgValue){
 //					alert(userMsgValue);
@@ -457,9 +457,9 @@
  				"						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
  				"						</button>"+
   				"						<strong>查询用户成功!</strong>"+
-				"						</div>");	
+				"						</div>");
 							$("#alert1").fadeOut(2500);
-							
+
 							//查询成功返回数据
 							$("#user_list_tbody").html("<tr>"+
 						"	<td><input type='checkbox' /></td>"+
@@ -473,7 +473,7 @@
 					"	</tr>");
 						},
 						error:function(){
-							
+
 						},
 						complete:function(){
 							$("#load").remove();
@@ -486,11 +486,11 @@
 					$(".modal-body").text("请输入您要搜索的用户名...");
 					$(".modal-footer").html("<button type='button' class='btn btn-primary' id='search_sure' data-dismiss='modal'>确定</button>");
 					$('#myModal').modal();
-					
+
 				}
 			});
-			
-			
+
+
 			//邮箱,手机号码正则表达式验证
 				function validator(type){
 					var json = {
@@ -501,5 +501,5 @@
 				}
 //				var str = "13420156755@163.com";
 //				alert(validator("email").test(str));
-		
+
 		});
