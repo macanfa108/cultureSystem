@@ -18,11 +18,13 @@ require(
 
         /*页面初始化加载数据*/
         $.ajax({
-            url: 'temperature.json',//这是初始化请求数据格式
+            url: 'findUpData.do',//这是初始化请求数据格式
             type: 'get',
             dataType: 'json',
             async: true,
-            data: {},
+            data: {
+					"whichTime": 1
+					},
             success: function(data) {
                 // console.log(data.length);
                 // 循环获取数据对象
@@ -183,11 +185,11 @@ require(
           var timeTicket = setInterval(function() {
             // 定时更新数据
               $.ajax({
-                url: 'temperature2.json',//这是定时请求数据格式
+                url: 'findUpData.do',//这是定时请求数据格式
                 type: 'get',
                 dataType: 'json',
                 async: false,
-                data: {},
+                data: {"whichTime": 2},
                 success: function(data) {
                     // 循环获取数据对象
                     // for(var i=0;i<data.length;i++){

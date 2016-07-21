@@ -41,9 +41,6 @@
 <li>
   <a href="login.html"><i class="icon icon-share-alt"></i> <span class="text">登录</span></a>
 </li>
-<li>
-  <a href="#"><i class="icon icon-edit"></i> <span class="text">修改个人信息</span></a>
-</li>
   </ul>
 </div>
 
@@ -130,7 +127,8 @@
 							<th>其他参数</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="warning_list_tbody">
+						<!--  
 						<tr class="danger">
 							<td><input type="checkbox"/></td>
 							<td>1</td>
@@ -140,58 +138,18 @@
 							<td>2016/5/18 22:09:27</td>
 							<td>...</td>
 						</tr>
-						<tr class="danger">
-							<td><input type="checkbox" /></td>
-							<td>2</td>
-							<td>溶氧传感器</td>
-							<td><span class="icon icon-ok"></span> 正常</td>
-							<td>溶氧量为5.15mg/L，过低！</td>
-							<td>2016/5/18 22:09:27</td>
-							<td>...</td>
-						</tr>
-						<tr  class="danger">
-							<td><input type="checkbox"/></td>
-							<td>3</td>
-							<td>温度传感器</td>
-							<td><span class="icon icon-ok"></span> 正常</td>
-							<td>温度为29℃，过高！</td>
-							<td>2016/5/18 22:09:27</td>
-							<td>...</td>
-						</tr>
-						<tr  class="danger">
-							<td><input type="checkbox"/></td>
-							<td>4</td>
-							<td>温度传感器</td>
-							<td><span class="icon icon-ok"></span> 正常</td>
-							<td>温度为29℃，过高！</td>
-							<td>2016/5/18 22:09:27</td>
-							<td>...</td>
-						</tr>
+						-->
 					</tbody>
 				</table>
-				<!--<ul class="pagination pull-right">
-				    <li>
-				      	<a href="#">
-				        	<span>&laquo;</span>
-				      	</a>
-				    </li>
-				    <li class="active"><a href="#">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li>
-				      	<a href="#">
-				        	<span>&raquo;</span>
-				      	</a>
-				    </li>
-				  </ul>-->
+				
 				  
-				  <!--分页按钮-->
+				  	<!--分页按钮-->
 				  	<div class="page">
 				    	<div class="pagination-holder">
-							<div class="light-pagination" class="pagination"></div>
+							<div class="light-pagination pagination"></div>
 						</div>
-					</div>				  
+					</div>
+
 			</div>
 		</div>
 		<!--预警提醒-->
@@ -226,7 +184,7 @@
 	<script src='js/jquery.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
 	<script src="js/common.js"></script>
-	<script src="js/jquery.simplePagination.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.simplePagination.js"></script>
 	<script src="js/notificationHistory.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
