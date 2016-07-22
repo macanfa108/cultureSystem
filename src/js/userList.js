@@ -4,6 +4,9 @@
  *
  */
 /*用户管理*/
+	
+(function($){
+
 
 	$(function(){
 
@@ -717,3 +720,6 @@
 //				alert(validator("email").test(str));
 		
 		});
+		
+	
+})(jQuery);

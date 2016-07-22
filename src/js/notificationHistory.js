@@ -1,5 +1,5 @@
 		
-		
+(function($){	
 	$(function(){
 		var page = 1;
 		
@@ -186,3 +186,4 @@
 		});
 			
 	});
+})(jQuery);	

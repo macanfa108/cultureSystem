@@ -1,4 +1,6 @@
-$(function(){
+
+(function($){
+	$(function(){
 				$("#submit").click(function(){
 
 
@@ -40,3 +42,5 @@ $(function(){
 				});
 				});
 			});
+			
+})(jQuery);

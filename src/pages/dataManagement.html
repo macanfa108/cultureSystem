@@ -33,72 +33,41 @@
 		</div>
 		<!--主内容头部面包屑导航-->
 		
-		<!--修改指标表单-->
-		<div class="container-fluid" id="targetSetting">
-			<h2>修改指标</h2>
-			<form class="form-horizontal col-xs-offset-4 col-md-offset-5">
-				<div class="row">
-					<div class="col-xs-4 form-group">
-						<label>指标名称</label>
-						<select class="form-control">
-							<option>指标一</option>
-							<option>指标二</option>
-							<option>指标三</option>
-						</select>
+		<div class="container-fluid" id="dataSave">
+			<form>
+				<fieldset>
+					<legend>数据备份与还原</legend>
+					<div class="row">
+						<label class="col-sm-2">手动备份到数据库</label>
+						<div class="col-sm-4">
+							<button type="button" class="btn btn-success">确定备份</button>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4 form-group">
-						<label>采集频率</label>	
-						<input type="text" class="form-control"/>
+					<div class="row">
+						<label class="col-sm-2">自动备份频率</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control" value="48" />
+						</div>
+						<span>小时/次</span>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4 form-group">
-						<label>指标权重</label>
-						<input type="text" class="form-control"/>
+					<div class="row">
+						<label class="col-sm-2">还原为上一次备份数据</label>
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-warning">确定还原</button>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4 form-group">
-						<button type="button" class="btn btn-info" id="sure">确定</button>
+				</fieldset>
+				<fieldset>
+					<legend>数据导出</legend>
+					<div class="row">
+						<label class="col-sm-2">导出为excel表</label>
+						<div class="col-sm-4">
+							<button type="button" class="btn btn-info">确定导出</button>
+						</div>
 					</div>
-				</div>
+				</fieldset>
 			</form>
 		</div>
-		<!--修改指标表单-->
-		
-		<!--指标参数-->
-		<div class="container-fluid target_list">
-			<!--指标参数-->
-			<h2>指标参数</h2>
-			<div class="table-responsive">
-				<table class="table  table-striped  table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>指标名称</th>
-							<th>采集频率</th>
-							<th>指标权重</th>
-							<!--<th>设备名</th>
-							<th>操作时间</th>
-							<th>备注</th>-->
-						</tr>
-					</thead>
-					<tbody id="target_data">
-						<tr>
-							<td>sdas</td>
-							<td>dasdas</td>
-							<td>dsadas</td>
-						</tr>
-					</tbody>
-				</table>
-		
-			</div>
-
-			<!--指标参数-->
-		</div>
-		<!--指标参数-->
-
 	</div>
 	<!--右边主体内容-->
 	
