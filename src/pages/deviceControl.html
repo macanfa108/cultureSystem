@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>循环水养殖系统</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="Shortcut Icon" href="images/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/home.css" /> -->
 	<link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
 	<!-- 前端模板：头部header部分 -->
 	@@include('../include/header.html')
 
 	<!-- 前端模板：左侧菜单部分 -->
-  @@include('../include/nav.html')
+	@@include('../include/nav.html')
 
 	<!--右边主体内容-->
 	<div id="content">
@@ -156,15 +158,6 @@
 								<td>2016/7/21 10:11:00</td>
 								<td>...</td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>2</td>
-								<td>增氧机机</td>
-								<td>实验楼</td>
-								<td>2016/7/21 13:10:00</td>
-								<td>2016/7/21 13:11:00</td>
-								<td>...</td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -181,11 +174,47 @@
 
 	</div>
 	<!--右边主体内容-->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">操作提示</h4>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<!-- 模态框 -->
+	<div class="modal fade bs-example-modal-sm" id='unsupported'>
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">提示消息！</h4>
+				</div>
+				<div class="modal-body">
+					<p>您的浏览器过低！请使用新版浏览器查看！</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <!-- 前端模板：底部版权部分 -->
+	<!-- 前端模板：底部版权部分 -->
 	@@include('../include/footer.html')
 	<script src='js/jquery.min.js'></script>
 	<script src='js/bootstrap.min.js'></script>
 	<script src="js/common.js"></script>
+	<script src="js/jquery.simplePagination.js"></script>
+	<script src="js/deviceControl.js" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>

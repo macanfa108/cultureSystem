@@ -27,7 +27,7 @@ $(function() {
     //循环匹配地址，对应则高亮
     for (var i = 0; i < sidebarLiSize; i++) {
         sidebarLihref = $(sidebarLi[i]).attr('href');
-         console.log(sidebarLihref);
+        //  console.log(sidebarLihref);
         if (currentLocation.indexOf(sidebarLihref) >= 0) {
             // console.log(0);
             $(sidebarLi[i]).parent('li').addClass('active').siblings('li').removeClass('active');

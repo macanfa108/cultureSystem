@@ -1,6 +1,7 @@
 $(function(){
 
   var activeImgUrl={};//外传数：设备动态图(既然用数组麻烦，用对象吧！哈哈哈)
+  var imgUrl={};//静态图片
   var dataTable=[];
   var deviceContainer=$("#deviceContainer");
   //初始化设备数据
@@ -15,6 +16,7 @@ $(function(){
       for(var i=0;i<data.length;i++){
         //将数据外传，以对象key/value形式存储数据
         activeImgUrl[data[i].deviceName]=data[i].activeImgUrl;
+        imgUrl[data[i].deviceName]=data[i].imgUrl;
         dataTable.push(data[i].deviceName);//用于生成后面各设备数据表格
 
         html+='<div class="col-sm-6 col-md-4 parentCon">'+
@@ -48,7 +50,7 @@ $(function(){
     }
     //设置动态图
     This.siblings(".deviceImg").prop({"src":activeImgUrl[imgKey]});
-    //金庸按钮
+    //禁用按钮
     This.prop('disabled',true);
     //同时发送ajax
     $.ajax({
@@ -62,7 +64,7 @@ $(function(){
         var msgAlert='';
         if(data.Msg=="success"){
 
-          msgAlert='<div class="container-fluid">'+
+          msgAlert='<div class="container-fluid" id="'+This.data('id')+'">'+
       		'	<div class="alert alert-success" role="alert">'+
       		'		<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
       		'			<span aria-hidden="true">&times;</span>'+
@@ -70,6 +72,49 @@ $(function(){
       		'		<strong>'+imgKey+'设备已开启！正在运行中！</strong>'+
       		'	</div>'+
       		'</div>';
+
+          /*websocket*/
+        //  var ws; // 就是一个通信管道
+        // var target = "ws://localhost:8080//DaChuang/index";//服务端的url，注意以ws开头
+        // //三个判断用于获取ws通信管道（浏览器兼容）
+      	// 	if('WebSocket' in window){
+      	// 		ws = new WebSocket(target);
+      	// 	}else if('MozWebSocket' in window){
+      	// 		ws = new MozMozWebSocket(target);
+      	// 	}else{
+      	// 		//浏览器不支持！
+      	// 		$("#unsupported").modal("show");
+      	// 		return;
+      	// 	}
+      		//其实点击开启设备的时候可以直接openwebsocket，判断成功连接就出现警告框了！可以少一次ajax
+      	// 	ws.onmessage=function(event){
+    		// 	//每次都是返回一个json对象
+    		// 	//对象内一个type和一个data
+    		// 	//转换json
+    		// 	var data=JSON.parse(event.data);
+        //
+    		// 	//拿到数据之后进行相应操作！下面模拟操作,返回的json中isClosed=1表示设备运行后关闭！
+    		// 	if(data.data.type=1){
+    		// 		//设置动态图
+    		// 	    This.siblings(".deviceImg").prop({"src":imgUrl[imgKey]});
+    		// 	    //禁用按钮
+    		// 	    This.prop('disabled',false);
+    		// 	    //关闭警告框(找到生成的模板里对应的ID）
+    		// 	    $("#"+This.data('id')).remove();
+    		// 	}
+    		// }
+      	// 	ws.onclose = function(){
+      	// 		$("#content-header").prepend(
+    		// 		     "<div class='alert alert-danger alert-dismissible fade in' id='disconnect' role='alert'>"+
+    		// 		     "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+    		// 		     "<span aria-hidden='true'>&times;</span>"+
+    		// 		     "</button>"+
+    		// 		     "<strong>已和服务器断开连接！请刷新重试！</strong>"+
+    		// 		     "</div>");
+    		// }
+
+      		/*websocket*/
+
 
         }else{
           msgAlert='<div class="container-fluid">'+
@@ -84,10 +129,10 @@ $(function(){
         $("#content-header").after(msgAlert);
       },
       error:function(){
-        alert("ajax开启设备失败！");
+        alert("ajax开启设备失败！请检查网络！");
       }
     });
-    //接下来就是等后台返回设备运行结束消息！返回方法与形式？
+
 
   });
   //添加设备
@@ -143,15 +188,7 @@ $(function(){
     var html='';
     html='<hr><div class="container-fluid deviceDataTable">'+
     '  <h5 class="pull-left">'+dataTable[i]+'</h5>'+
-    '  <form class="form-inline list_delete pull-right">'+
-    '    <button type="button" class="btn btn-info">刷新</button>'+
-    '      <div class="form-group">'+
-    '        <div class="input-group">'+
-    '            <input type="text" class="form-control" placeholder="搜索记录">'+
-    '            <div class="input-group-addon">搜索</div>'+
-    '        </div>'+
-    '      </div>'+
-    '  </form>'+
+    '    <button type="button" class="btn btn-info pull-right">刷新</button>'+
     '  <div class="clearfix"></div>'+
     '  <div class="table-responsive">'+
     '    <table class="table table-hover table-bordered table-striped table-condensed">'+
