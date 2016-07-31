@@ -56,12 +56,12 @@
 <div id="sidebar">
 <!--<a href="#" class="visible-xs-block"><i class="icon icon-home"></i> 菜单导航</a>-->
 <ul style="display: block;">
-  <li><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
+  <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
   <li> <a href="repository.html"><i class="icon icon-signal"></i> <span>专家知识库</span></a> </li>
   <li> <a href="deviceControl.html"><i class="icon icon-inbox"></i> <span>设备控制</span></a> </li>
   <li><a href="dataCollection.html"><i class="icon icon-th"></i> <span>数据采集</span></a></li>
   <li><a href="algorithmProcessor.html"><i class="icon icon-fullscreen"></i> <span>算法处理</span></a></li>
-  <li class="submenu active">
+  <li class="submenu">
     <a>
       <i class="icon icon-th-list"></i> <span>系统管理</span> <span class="label label-primary pull-right ">2</span>
     </a>
@@ -123,15 +123,14 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
-						<label>采集频率</label>
-						<i>(小时/次)</i>	
-						<input type="text" class="form-control" id="frequencyText" value="46"/>
+						<label>采集频率</label>	
+						<input type="text" class="form-control"/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 						<label>指标权重</label>
-						<input type="text" class="form-control" id="weightText"/>
+						<input type="text" class="form-control"/>
 					</div>
 				</div>
 				<div class="row">
@@ -159,7 +158,7 @@
 							<th>备注</th>-->
 						</tr>
 					</thead>
-					<tbody id="target_data_body">
+					<tbody id="target_data">
 						<tr>
 							<td>sdas</td>
 							<td>dasdas</td>
